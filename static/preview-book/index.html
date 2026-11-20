@@ -219,6 +219,14 @@ footer{background:#2b1620!important;border-top:0!important}
 .bk-f label{color:#8a6c77}
 .bk-f input,.bk-f select,.bk-f textarea{background:#FFF9FA;border-color:#EFC9D4;color:#3a2430}
 .bk-f input:focus,.bk-f select:focus,.bk-f textarea:focus{border-color:#D4768F}
+/* compact event details */
+.bk-grid.bk-f{grid-template-columns:repeat(6,1fr);gap:10px 12px}
+.bk-grid.bk-f>div{grid-column:span 2}
+.bk-grid.bk-f>div.full{grid-column:1/-1}
+.bk-grid.bk-f>div.half{grid-column:span 3}
+.bk-f label{margin:0 0 4px;font-size:10.5px}
+.bk-f input,.bk-f select,.bk-f textarea{padding:8px 11px;font-size:14px}
+@media(max-width:640px){.bk-grid.bk-f{grid-template-columns:1fr 1fr}.bk-grid.bk-f>div,.bk-grid.bk-f>div.half{grid-column:span 1}.bk-grid.bk-f>div.full{grid-column:1/-1}}
 .bk-terms{background:#FFF9FA;border-color:#F0CDD8;color:#5a4049}.bk-terms h4{color:#3a2430}
 .bk-sig{border:1px solid #EFC9D4}
 .bk-btn{background:#D4768F;color:#fff}.bk-btn.ghost{background:transparent;color:#C4577A;border-color:#D4768F}
@@ -305,15 +313,15 @@ footer{background:#2b1620!important;border-top:0!important}
  <div><label>Event date *</label><input name="event_date" type="date" required></div>
  <div><label>Event type</label><select name="event_type"><option>Wedding</option><option>Corporate</option><option>Birthday</option><option>Graduation</option><option>Quinceañera / Sweet 16</option><option>Baby shower</option><option>Prom / School</option><option>Other</option></select></div>
  <div><label>Booth start time *</label><input name="start_time" type="time" required></div>
- <div class="full"><label>Venue name *</label><input name="venue" required></div>
- <div class="full"><label>Street address *</label><input name="address" required autocomplete="street-address"></div>
+ <div class="half"><label>Venue name *</label><input name="venue" required></div>
+ <div class="half"><label>Street address *</label><input name="address" required autocomplete="street-address"></div>
  <div><label>City *</label><input name="city" required></div>
  <div><label>State</label><input name="state" value="GA"></div>
  <div><label>ZIP *</label><input name="zip" required pattern="[0-9]{5}" inputmode="numeric" maxlength="5"></div>
  <div><label>Indoor or outdoor</label><select name="setting"><option>Indoor</option><option>Outdoor (covered)</option><option>Outdoor (open)</option></select></div>
  <div><label>On-site contact name</label><input name="onsite_name"></div>
  <div><label>On-site contact phone</label><input name="onsite_phone" type="tel"></div>
- <div class="full"><label>Anything else we should know (print template, theme, load-in notes)</label><textarea name="notes" rows="3"></textarea></div>
+ <div class="full"><label>Anything else we should know (print template, theme, load-in notes)</label><textarea name="notes" rows="2"></textarea></div>
 </div>
 </div>
 
