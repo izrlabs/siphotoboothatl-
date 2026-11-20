@@ -306,7 +306,7 @@ footer{background:#030303;border-top:1px solid rgba(201,169,110,.08);padding:56p
 .mobile-menu a.btn{background:linear-gradient(135deg,#C9A96E,#B8944F);color:#0a0a0a;border:none;padding:14px 32px;border-radius:100px;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
 
 /* Static-site contact form (replaces WPForms) */
-.si-form{display:flex;flex-direction:column;gap:18px}
+.si-form{display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3.5vw,40px);box-sizing:border-box;width:100%}
 .si-form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .si-form label{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .si-form input,.si-form select,.si-form textarea{background:rgba(255,255,255,.04);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:14px 16px;color:#fff;font:inherit;font-size:15px;text-transform:none;letter-spacing:0}
