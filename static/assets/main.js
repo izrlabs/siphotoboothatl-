@@ -98,7 +98,12 @@ if(b&&s){for(var i=0;i<s.options.length;i++){if(s.options[i].value===b){s.select
 /* Quote form: send in the background and show a thank-you message */
 (function(){var f=document.querySelector('form.si-form');if(!f)return;
 f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('.si-form-btn');b.disabled=true;b.textContent='Sending...';
-var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}f.elements['_subject'].value='New Quote: '+(g('name')||'No name')+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip')+' | #'+String(Date.now()%100000);var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
+var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}f.elements['_subject'].value='New Quote: '+(g('name')||'No name')+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip')+' | #'+(function(){var n=new Date(),z=function(x){return ('0'+x).slice(-2);};return String(n.getFullYear()).slice(-2)+z(n.getMonth()+1)+z(n.getDate())+'-'+z(n.getHours())+z(n.getMinutes());})();var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
 fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(d){
 if(d&&(d.success===true||d.success==='true')){f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:#F0EBE1;margin:0 0 12px;">Thank you!</h3><p style="color:rgba(255,255,255,.6);line-height:1.8;margin:0;">We received your request and will get back to you shortly.</p></div>';}else{throw new Error('x');}
 }).catch(function(){b.disabled=false;b.textContent='Get My Free Quote';alert('Sorry, something went wrong. Please call or text (943) 255-2632.');});});})();
+
+/* Event date: open the calendar when the field is clicked anywhere */
+(function(){document.querySelectorAll('input[type=date]').forEach(function(el){
+var open=function(){try{if(el.showPicker)el.showPicker();}catch(e){}};
+el.addEventListener('click',open);el.addEventListener('focus',open);});})();
