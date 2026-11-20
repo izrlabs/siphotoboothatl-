@@ -106,7 +106,7 @@ var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};
 var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}
 nextNumber().then(function(num){
 var h=f.elements['quote_number'];if(!h){h=document.createElement('input');h.type='hidden';h.name='quote_number';f.appendChild(h);}h.value=num;
-f.elements['_subject'].value='SI Photo Booth | Quote #'+num+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip');
+f.elements['_subject'].value='Quote #'+num+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip')+' | SI Photo Booth';
 var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
 return fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
 }).then(function(r){return r.json();}).then(function(d2){
