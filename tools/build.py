@@ -35,6 +35,10 @@ def load_posts():
 def fmt(d):
     return d.strftime("%B ") + str(d.day) + d.strftime(", %Y")
 
+def abs_img(u):
+    return SITE + u if u.startswith('/') else u
+
+
 def esc(s): return html.escape(s, quote=True)
 
 LAYOUT = (ROOT / "tools" / "layout.html").read_text(encoding="utf-8")
@@ -51,9 +55,9 @@ def page(title, desc, canonical, body, og_image, og_type="website", extra_schema
         '<meta name="author" content="SI Photo Booth Atlanta">\n',
         f'<meta property="og:type" content="{og_type}">\n<meta property="og:title" content="{esc(title)}">\n',
         f'<meta property="og:description" content="{esc(desc)}">\n<meta property="og:url" content="{canonical}">\n',
-        f'<meta property="og:image" content="{esc(og_image)}">\n<meta property="og:site_name" content="SI Photo Booth Atlanta">\n',
+        f'<meta property="og:image" content="{esc(abs_img(og_image))}">\n<meta property="og:site_name" content="SI Photo Booth Atlanta">\n',
         '<meta name="twitter:card" content="summary_large_image">\n',
-        f'<meta name="twitter:title" content="{esc(title)}">\n<meta name="twitter:description" content="{esc(desc)}">\n<meta name="twitter:image" content="{esc(og_image)}">\n',
+        f'<meta name="twitter:title" content="{esc(title)}">\n<meta name="twitter:description" content="{esc(desc)}">\n<meta name="twitter:image" content="{esc(abs_img(og_image))}">\n',
         '<script type="application/ld+json">' + json.dumps(BIZ, ensure_ascii=False) + '</script>\n',
     ] + ['<script type="application/ld+json">' + json.dumps(s, ensure_ascii=False) + '</script>\n' for s in (extra_schema or [])])
     top = re.sub(r'<link rel="canonical" href="[^"]*"/>', f'<link rel="canonical" href="{canonical}"/>', HEAD_A)
@@ -87,7 +91,7 @@ def blog_index(posts):
             '<section class="sec"><div class="sec-inner">' + "".join(cards) + "</div></section>")
     return page("Photo Booth Blog Atlanta | Tips, Ideas & Inspiration | SI Photo Booth",
                 "Photo booth tips, event inspiration and behind-the-scenes from SI Photo Booth — Atlanta's premier photo booth rental company serving weddings, corporate events & more.",
-                f"{SITE}/blog/", body, posts[0]["image"] if posts and posts[0]["image"] else f"{SITE}/wp-content/uploads/2026/04/fun-group-photo-booth-atlanta.jpeg",
+                f"{SITE}/blog/", body, posts[0]["image"] if posts and posts[0]["image"] else f"{SITE}/assets/img/fun-group-photo-booth-atlanta.webp",
                 extra_schema=[breadcrumb([("Home", SITE + "/"), ("Blog", SITE + "/blog/")])])
 
 def post_page(p):
@@ -107,7 +111,7 @@ def post_page(p):
             "publisher": {"@type": "Organization", "name": "SI Photo Booth"}}
     if p["image"]: blog["image"] = p["image"]
     return page(f'{p["title"]} | SI Photo Booth Atlanta', p["desc"], url, body,
-                p["image"] or f"{SITE}/wp-content/uploads/2026/04/fun-group-photo-booth-atlanta.jpeg", "article",
+                p["image"] or f"{SITE}/assets/img/fun-group-photo-booth-atlanta.webp", "article",
                 [blog, breadcrumb([("Home", SITE + "/"), ("Blog", SITE + "/blog/"), (p["title"], url)])])
 
 def apply_base_path():

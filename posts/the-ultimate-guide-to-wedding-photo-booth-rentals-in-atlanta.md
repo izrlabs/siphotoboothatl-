@@ -3,7 +3,7 @@ title: The Ultimate Guide to Wedding Photo Booth Rentals in Atlanta, GA
 date: 2026-05-24
 category: Weddings
 description: Planning a wedding in Atlanta? Here is how a photo booth rental from SI Photo Booth turns your reception into a memory-making experience.
-image: https://siphotoboothatl.com/wp-content/uploads/2026/04/wedding-photo-booth-atlanta.jpeg
+image: /assets/img/wedding-photo-booth-atlanta.webp
 ---
 <style>
 .si-blog * { box-sizing: border-box; margin: 0; padding: 0; }

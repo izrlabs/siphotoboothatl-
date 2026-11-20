@@ -3,7 +3,7 @@ title: 7 Corporate Photo Booth Ideas That Make Atlanta Company Events Unforgetta
 date: 2026-11-21
 category: Corporate
 description: Planning a company party, gala or product launch in Atlanta? Seven practical photo booth ideas, from logo overlays to 360 videos, that guests actually use.
-image: https://siphotoboothatl.com/wp-content/uploads/2026/05/corporate-photo-booth-event-atlanta.webp
+image: /assets/img/corporate-photo-booth-event-atlanta.webp
 ---
 
 A photo booth at a corporate event does two jobs at once: it gives your guests something fun to do, and it puts your brand in every photo they share. Here are seven ideas that work for Atlanta company parties, galas, conferences and product launches.

@@ -3,7 +3,7 @@ title: Open-Air vs. Enclosed vs. 360 Booth: Which Is Right for Your Atlanta Wedd
 date: 2026-11-20
 category: Weddings
 description: Choosing a photo booth for your Atlanta wedding? Compare open-air, enclosed and 360 video booths, and learn which fits your venue, guest list and style.
-image: https://siphotoboothatl.com/wp-content/uploads/2026/05/open-air-booth-atlanta.webp
+image: /assets/img/open-air-booth-atlanta.webp
 ---
 
 Booking a photo booth is one of those wedding decisions that looks simple until you see the options. Open-air, enclosed, 360, glam: they all deliver fun, but they create very different moments. Here is how to pick the one that fits your Atlanta wedding.

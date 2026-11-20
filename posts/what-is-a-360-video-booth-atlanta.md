@@ -3,7 +3,7 @@ title: What Is a 360 Video Booth? Everything to Know Before You Book in Atlanta
 date: 2026-11-22
 category: 360 Video Booth
 description: A plain-English guide to the 360 video booth: how it works, how much space it needs, what guests get and which Atlanta events it suits best.
-image: https://siphotoboothatl.com/wp-content/uploads/2026/05/360-video-booth-atlanta.webp
+image: /assets/img/360-video-booth-atlanta.webp
 ---
 
 If you have seen a dramatic slow-motion video of friends spinning at a party, you have seen a 360 video booth in action. Here is what it is, how it works and what to know before you book one for your Atlanta event.

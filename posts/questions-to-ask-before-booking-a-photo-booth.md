@@ -3,7 +3,7 @@ title: 10 Questions to Ask Before Booking a Photo Booth in Atlanta
 date: 2026-11-23
 category: Planning Tips
 description: Do not book a photo booth until you have asked these ten questions. A simple checklist for weddings, corporate events and parties in the Atlanta area.
-image: https://siphotoboothatl.com/wp-content/uploads/2026/04/fun-group-photo-booth-atlanta.jpeg
+image: /assets/img/fun-group-photo-booth-atlanta.webp
 ---
 
 Not every photo booth company offers the same thing. A few good questions before you book can save you stress on the day. Use this checklist for weddings, corporate events and parties anywhere in Atlanta.
