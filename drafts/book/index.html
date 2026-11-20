@@ -350,12 +350,13 @@ var DEPOSIT=100;
 var PRICES={'open-air':{2:349,3:549,4:699},'enclosed':{2:449,3:649,4:799},'360':{2:349,3:549,4:699},'glam':{2:399,3:599,4:699}};
 var NAMES={'open-air':'Open-Air Photo Booth','enclosed':'Enclosed Photo Booth','360':'360° Video Booth','glam':'Glam Booth'};
 var ADDN={guestbook:'Guest Book',redcarpet:'Red Carpet & Stanchions',audiobook:'Audio Guest Book','4x6prints':'4x6 prints'};
-var f=document.getElementById('bk-form'),q=new URLSearchParams(location.search);
+var f=document.getElementById('bk-form'),q=new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,''));
 function $(s){return document.querySelector(s);}
 function money(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2});}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 /* Prefill from the link in the quote email */
 ['name','email','phone','event_date','city','venue','address','zip','state'].forEach(function(k){if(q.get(k)&&f.elements[k])f.elements[k].value=q.get(k);});
+if(q.get('event_type')&&f.elements.event_type){var et=q.get('event_type');Array.prototype.forEach.call(f.elements.event_type.options,function(o){if(o.value===et||o.text===et)f.elements.event_type.value=o.value;});}
 var b=q.get('booth');if(b&&PRICES[b]){var r=f.querySelector('input[name=booth][value="'+b+'"]');if(r)r.checked=true;}
 var h=q.get('hours');if(h&&[2,3,4].indexOf(+h)>-1){var r2=f.querySelector('input[name=hours][value="'+h+'"]');if(r2)r2.checked=true;}
 var TRAVEL=Math.max(0,parseFloat(q.get('travel'))||0),DISC=Math.max(0,parseFloat(q.get('discount'))||0),QNUM=(q.get('q')||'').replace(/[^0-9A-Za-z-]/g,'');
