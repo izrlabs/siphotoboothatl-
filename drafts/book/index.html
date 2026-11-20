@@ -163,7 +163,7 @@ window.addEventListener('scroll',function(){
 .bk-opt input:checked+label{border-color:#C9A96E;background:rgba(201,169,110,.1)}
 .bk-opt b{display:block;font-size:15px;margin-bottom:4px}
 .bk-opt small{color:rgba(255,255,255,.55);font-size:12px;line-height:1.5;display:block}
-.bk-hours{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 18px}
+.bk-hours{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:0 0 18px}
 .bk-hours .bk-opt{flex:1;min-width:120px}
 .bk-hours .bk-opt label{text-align:center}
 .bk-hours .bk-opt b{font-family:var(--fd);font-size:22px}
@@ -279,6 +279,9 @@ footer{background:#2b1620!important;border-top:0!important}
  <div class="bk-opt"><input type="radio" name="hours" id="h2" value="2"><label for="h2"><b>2</b><small>hours</small></label></div>
  <div class="bk-opt"><input type="radio" name="hours" id="h3" value="3"><label for="h3"><b>3</b><small>hours</small></label></div>
  <div class="bk-opt"><input type="radio" name="hours" id="h4" value="4" checked><label for="h4"><b>4</b><small>hours</small></label></div>
+ <div class="bk-opt"><input type="radio" name="hours" id="h5" value="5"><label for="h5"><b>5</b><small>hours</small></label></div>
+ <div class="bk-opt"><input type="radio" name="hours" id="h6" value="6"><label for="h6"><b>6</b><small>hours</small></label></div>
+ <div class="bk-opt"><input type="radio" name="hours" id="h8" value="8"><label for="h8"><b>Whole</b><small>day</small></label></div>
 </div>
 <div class="bk-add">
  <label><input type="checkbox" name="addon" value="guestbook" data-price="75"> Guest Book (+$75)</label>
@@ -349,10 +352,11 @@ var PAY_URL='';
 var DEPOSIT=100;
 var PRICES={'open-air':{2:349,3:549,4:699},'enclosed':{2:449,3:649,4:799},'360':{2:349,3:549,4:699},'glam':{2:399,3:599,4:699}};
 /* Price overrides from the link (for you): p2, p3, p4 change that hour tier for every booth; price changes only the booth+hours named in the link */
-[2,3,4].forEach(function(h){var v=parseFloat(new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,'')).get('p'+h));if(v>0)Object.keys(PRICES).forEach(function(k){PRICES[k][h]=v;});});
+[2,3,4,5,6,8].forEach(function(h){var v=parseFloat(new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,'')).get('p'+h));if(v>0)Object.keys(PRICES).forEach(function(k){PRICES[k][h]=v;});});
 var NAMES={'open-air':'Open-Air Photo Booth','enclosed':'Enclosed Photo Booth','360':'360° Video Booth','glam':'Glam Booth'};
 var ADDN={guestbook:'Guest Book',redcarpet:'Red Carpet & Stanchions',audiobook:'Audio Guest Book','4x6prints':'4x6 prints'};
 var f=document.getElementById('bk-form'),q=new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,''));
+function HL(h){return h===8?'Whole day':h+' hours';}
 function $(s){return document.querySelector(s);}
 function money(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2});}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -360,18 +364,19 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 ['name','email','phone','event_date','city','venue','address','zip','state'].forEach(function(k){if(q.get(k)&&f.elements[k])f.elements[k].value=q.get(k);});
 if(q.get('event_type')&&f.elements.event_type){var et=q.get('event_type');Array.prototype.forEach.call(f.elements.event_type.options,function(o){if(o.value===et||o.text===et)f.elements.event_type.value=o.value;});}
 var b=q.get('booth');if(b&&PRICES[b]){var r=f.querySelector('input[name=booth][value="'+b+'"]');if(r)r.checked=true;}
-var h=q.get('hours');if(h&&[2,3,4].indexOf(+h)>-1){var r2=f.querySelector('input[name=hours][value="'+h+'"]');if(r2)r2.checked=true;}
+var h=q.get('hours');if(h&&[2,3,4,5,6,8].indexOf(+h)>-1){var r2=f.querySelector('input[name=hours][value="'+h+'"]');if(r2)r2.checked=true;}
 var TRAVEL=Math.max(0,parseFloat(q.get('travel'))||0),DISC=Math.max(0,parseFloat(q.get('discount'))||0),QNUM=(q.get('q')||'').replace(/[^0-9A-Za-z-]/g,'');
 var OVR=parseFloat(q.get('price'))||0,OVRB=q.get('booth'),OVRH=+q.get('hours');
-function state(){var booth=f.elements.booth.value,hrs=+f.elements.hours.value,base=PRICES[booth][hrs],adds=[];
+function state(){var booth=f.elements.booth.value,hrs=+f.elements.hours.value,base=PRICES[booth][hrs],custom=(base==null),adds=[];
+ if(custom)base=0;
  if(OVR>0&&booth===OVRB&&hrs===OVRH)base=OVR;
  f.querySelectorAll('input[name=addon]:checked').forEach(function(c){adds.push({k:c.value,p:+c.dataset.price});});
  var addT=adds.reduce(function(a,c){return a+c.p;},0),sub=base+addT+TRAVEL-DISC;
- return {booth:booth,hrs:hrs,base:base,adds:adds,addT:addT,sub:Math.max(0,sub)};}
+ return {custom:custom,booth:booth,hrs:hrs,base:base,adds:adds,addT:addT,sub:Math.max(0,sub)};}
 function render(){var s=state();
  $('#bk-4x6').style.display=(s.booth==='360')?'none':'flex';
  if(s.booth==='360'){var c=f.querySelector('input[value=4x6prints]');if(c)c.checked=false;}
- var h='<div class="bk-row"><span>'+NAMES[s.booth]+', '+s.hrs+' hours</span><span>'+money(s.base)+'</span></div>';
+ var h='<div class="bk-row"><span>'+NAMES[s.booth]+', '+HL(s.hrs)+'</span><span>'+(s.custom?'Custom quote':money(s.base))+'</span></div>';
  s.adds.forEach(function(a){h+='<div class="bk-row"><span>'+ADDN[a.k]+'</span><span>'+money(a.p)+'</span></div>';});
  if(TRAVEL)h+='<div class="bk-row"><span>Travel</span><span>'+money(TRAVEL)+'</span></div>';
  if(DISC)h+='<div class="bk-row"><span>Discount</span><span>-'+money(DISC)+'</span></div>';
@@ -381,7 +386,7 @@ function render(){var s=state();
 function renderTerms(){var s=state(),d=f.elements.event_date.value,nm=f.elements.name.value||'the Client';
  var ven=[f.elements.venue.value,f.elements.address.value,f.elements.city.value,f.elements.state.value,f.elements.zip.value].filter(Boolean).join(', ')||'the venue address provided in this form';
  $('#bk-terms').innerHTML=
- '<h4>PHOTO BOOTH RENTAL AGREEMENT</h4><p>This agreement is between SI Photo Booth ("Company") and '+esc(nm)+' ("Client") for '+esc(NAMES[s.booth])+' service of '+s.hrs+' hours on '+esc(d||'the event date above')+' at '+esc(ven)+'.</p>'+
+ '<h4>PHOTO BOOTH RENTAL AGREEMENT</h4><p>This agreement is between SI Photo Booth ("Company") and '+esc(nm)+' ("Client") for '+esc(NAMES[s.booth])+' service of '+HL(s.hrs)+' on '+esc(d||'the event date above')+' at '+esc(ven)+'.</p>'+
  '<h4>1. Services</h4><p>The Company will provide the selected booth, a professional on-site attendant, setup and breakdown, props, a custom print template, and the digital gallery as described in the package. Prints and sharing options depend on the booth selected.</p>'+
  '<h4>2. Price and payment</h4><p>The total is '+money(s.sub)+' plus applicable sales tax. A '+money(DEPOSIT)+' deposit is due at booking to secure the date. The remaining balance is due on or before the event date. The date is not reserved until the signed agreement and deposit are received.</p>'+
  '<h4>3. Cancellation and rescheduling</h4><p>The deposit is non-refundable. If the Client needs to change the date, the Company will try to move the booking, subject to availability. If the Company must cancel for any reason within its control, the Client receives a full refund of all payments.</p>'+
@@ -408,6 +413,7 @@ function nextInvoice(){var fb='INV-'+new Date().toISOString().slice(5,10).replac
 f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');err.textContent='';
  var req=['name','email','phone','event_date','start_time','venue','address','city','zip'];
  for(var i=0;i<req.length;i++){var el=f.elements[req[i]];if(!el.value.trim()||(req[i]==='zip'&&!/^[0-9]{5}$/.test(el.value))||(req[i]==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value))){err.textContent='Please complete: '+req[i].replace('_',' ')+'.';el.focus();return;}}
+ if(state().custom){err.textContent='For 5 hours or a whole day we quote your price personally. Please text or call (943) 255-2632, and we will send you a link with your price.';return;}
  if(!$('#bk-agree').checked){err.textContent='Please tick the box to agree to the agreement.';return;}
  if(!f.elements.signature_name.value.trim()){err.textContent='Please type your full name as your signature.';return;}
  if(!drawn){err.textContent='Please draw your signature.';return;}
@@ -416,13 +422,13 @@ f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');
  nextInvoice().then(function(inv){
   f.elements.invoice_number.value=inv;f.elements._cc.value=f.elements.email.value;
   f.elements.status.value='SIGNED CONTRACT - deposit due $'+DEPOSIT+' - Invoice '+inv;
-  var pk=NAMES[s.booth]+', '+s.hrs+' hours'+(s.adds.length?' + '+s.adds.map(function(a){return ADDN[a.k];}).join(', '):'');
+  var pk=NAMES[s.booth]+', '+HL(s.hrs)+(s.adds.length?' + '+s.adds.map(function(a){return ADDN[a.k];}).join(', '):'');
   f.elements.package_summary.value=pk;f.elements.total_summary.value='Total '+money(s.sub)+' + tax | Deposit '+money(DEPOSIT)+(QNUM?' | Quote #'+QNUM:'');
   f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv+' | SI Photo Booth';
   var fd=new FormData(f);fd.append('agreement_signed_at',new Date().toString());fd.append('agreement_text',$('#bk-terms').innerText);
   return fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){if(!(j&&(j.success===true||j.success==='true')))throw new Error('x');return inv;});
  }).then(function(inv){showInvoice(inv,s);}).catch(function(){btn.disabled=false;btn.textContent='Sign & Book My Date';err.textContent='Sorry, something went wrong. Please call or text (943) 255-2632.';});});
-function showInvoice(inv,s){var rows='<tr><td>'+esc(NAMES[s.booth])+', '+s.hrs+' hours</td><td>'+money(s.base)+'</td></tr>';
+function showInvoice(inv,s){var rows='<tr><td>'+esc(NAMES[s.booth])+', '+HL(s.hrs)+'</td><td>'+money(s.base)+'</td></tr>';
  s.adds.forEach(function(a){rows+='<tr><td>'+ADDN[a.k]+'</td><td>'+money(a.p)+'</td></tr>';});
  if(TRAVEL)rows+='<tr><td>Travel</td><td>'+money(TRAVEL)+'</td></tr>';
  if(DISC)rows+='<tr><td>Discount</td><td>-'+money(DISC)+'</td></tr>';
