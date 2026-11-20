@@ -120,9 +120,12 @@ def apply_base_path():
     base = os.environ.get("BASE_PATH", "").rstrip("/")
     if not base: return
     pat = re.compile(r'((?:href|src|action)=")/(?!/)')
+    pat2 = re.compile(r"(url\(['\"]?|openLb\(')/(?!/)")
     for f in OUT.rglob("*.html"):
         t = f.read_text(encoding="utf-8")
-        f.write_text(pat.sub(lambda m: m.group(1) + base + "/", t), encoding="utf-8")
+        t = pat.sub(lambda m: m.group(1) + base + "/", t)
+        t = pat2.sub(lambda m: m.group(1) + base + "/", t)
+        f.write_text(t, encoding="utf-8")
     print("applied BASE_PATH", base)
 
 def main():
