@@ -258,11 +258,11 @@ footer{background:#2b1620!important;border-top:0!important}
 <form id="bk-form" action="https://formsubmit.co/siphotoboothatl@gmail.com" method="POST" novalidate>
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <input type="hidden" name="_subject" value="">
-<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_template" value="box">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_cc" value="">
 <input type="hidden" name="invoice_number" value="">
-<input type="hidden" name="signature_image" value="">
+<input type="hidden" name="status" value="SIGNED CONTRACT">
 <input type="hidden" name="package_summary" value="">
 <input type="hidden" name="total_summary" value="">
 
@@ -348,6 +348,8 @@ footer{background:#2b1620!important;border-top:0!important}
 var PAY_URL='';
 var DEPOSIT=100;
 var PRICES={'open-air':{2:349,3:549,4:699},'enclosed':{2:449,3:649,4:799},'360':{2:349,3:549,4:699},'glam':{2:399,3:599,4:699}};
+/* Price overrides from the link (for you): p2, p3, p4 change that hour tier for every booth; price changes only the booth+hours named in the link */
+[2,3,4].forEach(function(h){var v=parseFloat(new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,'')).get('p'+h));if(v>0)Object.keys(PRICES).forEach(function(k){PRICES[k][h]=v;});});
 var NAMES={'open-air':'Open-Air Photo Booth','enclosed':'Enclosed Photo Booth','360':'360° Video Booth','glam':'Glam Booth'};
 var ADDN={guestbook:'Guest Book',redcarpet:'Red Carpet & Stanchions',audiobook:'Audio Guest Book','4x6prints':'4x6 prints'};
 var f=document.getElementById('bk-form'),q=new URLSearchParams((location.search||'').replace(/^\?/,'')+'&'+(location.hash||'').replace(/^#/,''));
@@ -360,7 +362,9 @@ if(q.get('event_type')&&f.elements.event_type){var et=q.get('event_type');Array.
 var b=q.get('booth');if(b&&PRICES[b]){var r=f.querySelector('input[name=booth][value="'+b+'"]');if(r)r.checked=true;}
 var h=q.get('hours');if(h&&[2,3,4].indexOf(+h)>-1){var r2=f.querySelector('input[name=hours][value="'+h+'"]');if(r2)r2.checked=true;}
 var TRAVEL=Math.max(0,parseFloat(q.get('travel'))||0),DISC=Math.max(0,parseFloat(q.get('discount'))||0),QNUM=(q.get('q')||'').replace(/[^0-9A-Za-z-]/g,'');
+var OVR=parseFloat(q.get('price'))||0,OVRB=q.get('booth'),OVRH=+q.get('hours');
 function state(){var booth=f.elements.booth.value,hrs=+f.elements.hours.value,base=PRICES[booth][hrs],adds=[];
+ if(OVR>0&&booth===OVRB&&hrs===OVRH)base=OVR;
  f.querySelectorAll('input[name=addon]:checked').forEach(function(c){adds.push({k:c.value,p:+c.dataset.price});});
  var addT=adds.reduce(function(a,c){return a+c.p;},0),sub=base+addT+TRAVEL-DISC;
  return {booth:booth,hrs:hrs,base:base,adds:adds,addT:addT,sub:Math.max(0,sub)};}
@@ -408,13 +412,13 @@ f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');
  if(!f.elements.signature_name.value.trim()){err.textContent='Please type your full name as your signature.';return;}
  if(!drawn){err.textContent='Please draw your signature.';return;}
  var btn=$('#bk-go');btn.disabled=true;btn.textContent='Sending...';
- var s=state(),sig=cv.toDataURL('image/png');
+ var s=state();
  nextInvoice().then(function(inv){
   f.elements.invoice_number.value=inv;f.elements._cc.value=f.elements.email.value;
-  f.elements.signature_image.value=sig;
+  f.elements.status.value='SIGNED CONTRACT - deposit due $'+DEPOSIT+' - Invoice '+inv;
   var pk=NAMES[s.booth]+', '+s.hrs+' hours'+(s.adds.length?' + '+s.adds.map(function(a){return ADDN[a.k];}).join(', '):'');
   f.elements.package_summary.value=pk;f.elements.total_summary.value='Total '+money(s.sub)+' + tax | Deposit '+money(DEPOSIT)+(QNUM?' | Quote #'+QNUM:'');
-  f.elements._subject.value='Signed Agreement '+inv+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | SI Photo Booth';
+  f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv+' | SI Photo Booth';
   var fd=new FormData(f);fd.append('agreement_signed_at',new Date().toString());fd.append('agreement_text',$('#bk-terms').innerText);
   return fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){if(!(j&&(j.success===true||j.success==='true')))throw new Error('x');return inv;});
  }).then(function(inv){showInvoice(inv,s);}).catch(function(){btn.disabled=false;btn.textContent='Sign & Book My Date';err.textContent='Sorry, something went wrong. Please call or text (943) 255-2632.';});});
