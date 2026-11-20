@@ -1,0 +1,25 @@
+# SI Photo Booth
+
+> SI Photo Booth is an Atlanta, Georgia photo booth rental company for weddings, corporate events, proms, birthdays, graduations, quinceañeras and more. Booths: Open-Air, Enclosed, 360° Video and Glam. Every rental includes a professional on-site attendant, unlimited instant prints, custom print templates, and instant digital sharing.
+
+Website: https://siphotoboothatl.com
+Phone: (943) 255-2632
+Email: siphotoboothatl@gmail.com
+Service area: Atlanta, Marietta, Alpharetta, Roswell, Sandy Springs, Lawrenceville, Kennesaw, Midtown and surrounding Georgia
+
+## Main pages
+- [Home](https://siphotoboothatl.com/): overview of booths and services
+- [Services](https://siphotoboothatl.com/services/): Open-Air, Enclosed, 360° Video and Glam booths with features and starting prices
+- [Gallery](https://siphotoboothatl.com/gallery/): photos from weddings and events
+- [About](https://siphotoboothatl.com/about/): about SI Photo Booth
+- [Contact / Get a quote](https://siphotoboothatl.com/contact/): request a free quote with event date, city and ZIP code
+- [Blog](https://siphotoboothatl.com/blog/): planning tips for weddings and corporate events
+
+## City pages
+- [Marietta](https://siphotoboothatl.com/photo-booth-rental-marietta-ga/)
+- [Roswell](https://siphotoboothatl.com/photo-booth-rental-roswell-ga/)
+- [Sandy Springs](https://siphotoboothatl.com/photo-booth-rental-sandy-springs-ga/)
+- [Midtown Atlanta](https://siphotoboothatl.com/photo-booth-rental-midtown-ga/)
+- [Lawrenceville](https://siphotoboothatl.com/photo-booth-rental-lawrenceville-ga/)
+- [Alpharetta](https://siphotoboothatl.com/photo-booth-rental-alpharetta-ga/)
+- [Kennesaw](https://siphotoboothatl.com/photo-booth-rental-kennesaw-ga/)
