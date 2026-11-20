@@ -110,6 +110,17 @@ def post_page(p):
                 p["image"] or f"{SITE}/wp-content/uploads/2026/04/fun-group-photo-booth-atlanta.jpeg", "article",
                 [blog, breadcrumb([("Home", SITE + "/"), ("Blog", SITE + "/blog/"), (p["title"], url)])])
 
+def apply_base_path():
+    """While previewing on github.io/<repo>/, prefix root-relative links. Unset BASE_PATH once the real domain is connected."""
+    import os
+    base = os.environ.get("BASE_PATH", "").rstrip("/")
+    if not base: return
+    pat = re.compile(r'((?:href|src|action)=")/(?!/)')
+    for f in OUT.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        f.write_text(pat.sub(lambda m: m.group(1) + base + "/", t), encoding="utf-8")
+    print("applied BASE_PATH", base)
+
 def main():
     if OUT.exists(): shutil.rmtree(OUT)
     shutil.copytree(ROOT / "static", OUT)
@@ -126,6 +137,7 @@ def main():
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
         f"<url><loc>{SITE}{u}</loc><changefreq>{c}</changefreq><priority>{pr}</priority></url>\n" for u, pr, c in urls) + "</urlset>\n"
     (OUT / "sitemap.xml").write_text(xml, encoding="utf-8")
+    apply_base_path()
     print(f"built {len(posts)} live post(s), {len(urls)} URLs -> {OUT}")
 
 if __name__ == "__main__":
