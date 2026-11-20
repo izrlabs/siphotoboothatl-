@@ -94,3 +94,11 @@ if (fadeEls.length && 'IntersectionObserver' in window) {
 /* Preselect the booth on the quote form from ?booth=open-air|enclosed|360|glam */
 (function(){try{var b=new URLSearchParams(window.location.search).get('booth');var s=document.getElementById('booth');
 if(b&&s){for(var i=0;i<s.options.length;i++){if(s.options[i].value===b){s.selectedIndex=i;break;}}}}catch(e){}})();
+
+/* Quote form: send in the background and show a thank-you message */
+(function(){var f=document.querySelector('form.si-form');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('.si-form-btn');b.disabled=true;b.textContent='Sending...';
+var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
+fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(d){
+if(d&&(d.success===true||d.success==='true')){f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:#F0EBE1;margin:0 0 12px;">Thank you!</h3><p style="color:rgba(255,255,255,.6);line-height:1.8;margin:0;">We received your request and will get back to you shortly.</p></div>';}else{throw new Error('x');}
+}).catch(function(){b.disabled=false;b.textContent='Get My Free Quote';alert('Sorry, something went wrong. Please call or text (943) 255-2632.');});});})();
