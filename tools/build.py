@@ -45,7 +45,7 @@ def page(title, desc, canonical, body, og_image, og_type="website", extra_schema
     head = "".join([
         f"<title>{esc(title)}</title>\n",
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap">\n',
-        '<link rel="stylesheet" href="/assets/main.css?ver=4.1">\n',
+        '<link rel="stylesheet" href="/assets/main.css?ver=4.3">\n',
         f'<meta name="description" content="{esc(desc)}">\n',
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">\n',
         '<meta name="author" content="SI Photo Booth Atlanta">\n',
