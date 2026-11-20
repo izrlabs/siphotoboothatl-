@@ -90,3 +90,7 @@ if (fadeEls.length && 'IntersectionObserver' in window) {
   }, { threshold: 0.1 });
   fadeEls.forEach(function(el) { obs.observe(el); });
 }
+
+/* Preselect the booth on the quote form from ?booth=open-air|enclosed|360|glam */
+(function(){try{var b=new URLSearchParams(window.location.search).get('booth');var s=document.getElementById('booth');
+if(b&&s){for(var i=0;i<s.options.length;i++){if(s.options[i].value===b){s.selectedIndex=i;break;}}}}catch(e){}})();
