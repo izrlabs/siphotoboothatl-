@@ -95,12 +95,22 @@ if (fadeEls.length && 'IntersectionObserver' in window) {
 (function(){try{var b=new URLSearchParams(window.location.search).get('booth');var s=document.getElementById('booth');
 if(b&&s){for(var i=0;i<s.options.length;i++){if(s.options[i].value===b){s.selectedIndex=i;break;}}}}catch(e){}})();
 
-/* Quote form: send in the background and show a thank-you message */
+/* Quote form: number the request (1, 2, 3...), send in the background, show a thank-you message */
 (function(){var f=document.querySelector('form.si-form');if(!f)return;
+var COUNTER='https://api.counterapi.dev/v1/si-photo-booth-quotes-7k2m/quotes/up';
+function fallback(){var n=new Date(),z=function(x){return ('0'+x).slice(-2);};return 'T'+z(n.getMonth()+1)+z(n.getDate())+'-'+z(n.getHours())+z(n.getMinutes());}
+function nextNumber(){var c=new AbortController();var t=setTimeout(function(){c.abort();},6000);
+return fetch(COUNTER,{signal:c.signal}).then(function(r){return r.json();}).then(function(d){clearTimeout(t);return (d&&d.count)?String(d.count):fallback();}).catch(function(){clearTimeout(t);return fallback();});}
 f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('.si-form-btn');b.disabled=true;b.textContent='Sending...';
-var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}f.elements['_subject'].value='New Quote: '+(g('name')||'No name')+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip')+' | #'+(function(){var n=new Date(),z=function(x){return ('0'+x).slice(-2);};return String(n.getFullYear()).slice(-2)+z(n.getMonth()+1)+z(n.getDate())+'-'+z(n.getHours())+z(n.getMinutes());})();var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
-fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(d){
-if(d&&(d.success===true||d.success==='true')){f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:#F0EBE1;margin:0 0 12px;">Thank you!</h3><p style="color:rgba(255,255,255,.6);line-height:1.8;margin:0;">We received your request and will get back to you shortly.</p></div>';}else{throw new Error('x');}
+var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};
+var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}
+nextNumber().then(function(num){
+var h=f.elements['quote_number'];if(!h){h=document.createElement('input');h.type='hidden';h.name='quote_number';f.appendChild(h);}h.value=num;
+f.elements['_subject'].value='SI Photo Booth | Quote #'+num+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip');
+var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
+return fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+}).then(function(r){return r.json();}).then(function(d2){
+if(d2&&(d2.success===true||d2.success==='true')){f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:#F0EBE1;margin:0 0 12px;">Thank you!</h3><p style="color:rgba(255,255,255,.6);line-height:1.8;margin:0;">We received your request and will get back to you shortly.</p></div>';}else{throw new Error('x');}
 }).catch(function(){b.disabled=false;b.textContent='Get My Free Quote';alert('Sorry, something went wrong. Please call or text (943) 255-2632.');});});})();
 
 /* Event date: open the calendar when the field is clicked anywhere */
