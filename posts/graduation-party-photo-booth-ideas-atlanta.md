@@ -36,4 +36,4 @@ Graduation season is busy, and Saturdays fill early. Ask for a quote a month or 
 
 Tell us the date, venue and guest count and we will send the price. We serve Atlanta and nearby cities, including [Sandy Springs](/photo-booth-rental-sandy-springs-ga/) and [Marietta](/photo-booth-rental-marietta-ga/). [Request a quote](/contact/).
 
-If we are already booked on your date, our sister company [Marvelous Memories](https://marvelousmemoriesbooth.com/) may still have availability for Georgia and Tennessee events.
+If your date is already taken, [Marvelous Memories](https://marvelousmemoriesbooth.com/) also offers photo booth and 360 video booth rentals across Georgia and Tennessee.
