@@ -49,7 +49,7 @@ def page(title, desc, canonical, body, og_image, og_type="website", extra_schema
     head = "".join([
         f"<title>{esc(title)}</title>\n",
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap">\n',
-        '<link rel="stylesheet" href="/assets/main.css?ver=4.8">\n<link rel="stylesheet" href="/assets/pink.css?ver=3">\n',
+        '<link rel="stylesheet" href="/assets/main.css?ver=4.8">\n<link rel="stylesheet" href="/assets/pink.css?ver=4">\n',
         f'<meta name="description" content="{esc(desc)}">\n',
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">\n',
         '<meta name="author" content="SI Photo Booth Atlanta">\n',
@@ -73,7 +73,7 @@ PHONE = "(943) 255-2632"; PHONE_TEL = "+19432552632"
 
 def rose_page(title, desc, canonical, body, og_image, og_type="website", extra_schema=None):
     html_ = page(title, desc, canonical, '<div class="rose">' + body + '</div>', og_image, og_type, extra_schema)
-    return html_.replace('<link rel="stylesheet" href="/assets/pink.css?ver=3">\n', '<link rel="stylesheet" href="/assets/pink.css?ver=3">\n' + ROSE_LINK, 1)
+    return html_.replace('<link rel="stylesheet" href="/assets/pink.css?ver=4">\n', '<link rel="stylesheet" href="/assets/pink.css?ver=4">\n' + ROSE_LINK, 1)
 
 def slugify(t):
     return re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", t).lower()).strip("-")

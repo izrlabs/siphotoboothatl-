@@ -37,7 +37,7 @@ function setTest(i) {
   if (te) te.textContent = tests[i].e;
   document.querySelectorAll('.test-dot').forEach(function(d, j) {
     d.style.width = j === i ? '28px' : '7px';
-    d.style.background = j === i ? '#C9A96E' : 'rgba(255,255,255,.1)';
+    d.style.background = j === i ? '#C2456E' : 'rgba(255,255,255,.1)';
   });
 }
 if (document.querySelector('.test-dot')) {
