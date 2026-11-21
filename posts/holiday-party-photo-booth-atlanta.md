@@ -37,3 +37,5 @@ Photo booths are busiest right after people arrive and again once dinner is over
 ## Ready to book?
 
 We serve Atlanta and nearby cities, including [Marietta](/photo-booth-rental-marietta-ga/), [Kennesaw](/photo-booth-rental-kennesaw-ga/) and [Alpharetta](/photo-booth-rental-alpharetta-ga/). [Request a quote](/contact/) with your date, venue and guest count and we will get back to you quickly.
+
+If we are already booked on your date, our sister company [Marvelous Memories](https://marvelousmemoriesbooth.com/) may still have availability for Georgia and Tennessee events.
