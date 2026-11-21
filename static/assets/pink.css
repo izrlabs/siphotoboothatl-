@@ -74,3 +74,7 @@ a[style*="color:#C9A96E"]{color:#C2456E!important;}
 .hero-h1 em,.hero-content em{color:#C2456E!important;}
 .hero-content .btn-outline{border-color:#C2456E!important;color:#8E2B4D!important;}
 .hero-bottom{background:linear-gradient(transparent,#FFFAF8)!important;}
+
+/* round 4: keep inner-page hero photos clear; only a soft dark fade behind the title */
+.page-hero-overlay,.about-hero-ov{background:linear-gradient(180deg,rgba(40,10,24,.10) 0%,rgba(40,10,24,0) 30%,rgba(50,12,30,.78) 100%)!important;}
+.page-hero-bg,.about-hero-bg{filter:none!important;opacity:1!important;}
