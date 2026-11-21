@@ -116,7 +116,7 @@ f.elements['_subject'].value='Quote #'+num+' | '+(d||'No date yet')+' | '+g('cit
 var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
 return fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
 }).then(function(r){return r.json();}).then(function(d2){
-if(d2&&(d2.success===true||d2.success==='true')){f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:#F0EBE1;margin:0 0 12px;">Thank you!</h3><p style="color:rgba(255,255,255,.6);line-height:1.8;margin:0;">We received your request and will get back to you shortly.</p></div>';}else{throw new Error('x');}
+if(d2&&(d2.success===true||d2.success==='true')){var lt=f.classList.contains('qf');f.innerHTML='<div style="text-align:center;padding:48px 16px;"><h3 style="font-family:var(--fd);font-size:28px;color:'+(lt?'#8E2B4D':'#F0EBE1')+';margin:0 0 12px;">Thank you!</h3><p style="color:'+(lt?'#6E5A62':'rgba(255,255,255,.6)')+';line-height:1.8;margin:0;">We received your request and will get back to you shortly. Your quote number is in the email we send you.</p></div>';if(lt){f.scrollIntoView({behavior:'smooth',block:'center'});}}else{throw new Error('x');}
 }).catch(function(){b.disabled=false;b.textContent='Get My Free Quote';alert('Sorry, something went wrong. Please call or text (943) 255-2632.');});});})();
 
 /* Event date: open the calendar when the field is clicked anywhere */
