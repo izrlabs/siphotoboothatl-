@@ -58,7 +58,7 @@ Prices depend on the booth you choose, the length of your event, the date, and h
 | Glam booth | From $200 | Weddings, galas, milestone birthdays |
 | Enclosed booth | From $225 | Classic strips, reunions, school events |
 
-Prices are before sales tax, and longer events cost more because we staff the booth for the whole time. Roswell sits inside the area where we do not charge a travel fee. Extras such as a guest book, red carpet and stanchions, audio guest book and larger 4x6 prints can be added to any booking, and the White Flower Wall backdrop is available as an upgrade.
+Prices are before sales tax, and longer events cost more because we staff the booth for the whole time. Roswell sits inside the area where we do not charge a travel fee. Every booking includes unlimited instant prints, a friendly attendant and a custom photo template. Add-ons such as a guest book or an upgraded backdrop can be included on request.
 
 <div class="key">
 <strong>What is included with every booking</strong>
@@ -77,15 +77,15 @@ Prices are before sales tax, and longer events cost more because we staff the bo
 We set up in a huge range of spaces. Here are the types of Roswell locations we see most, and what we plan for at each.
 
 - **Historic homes and garden venues.** Roswell is known for historic properties, and many of them are beautiful but have narrow doorways, older floors or limited power. We confirm access and outlet locations ahead of time so setup is quiet and quick.
-- **Barns and event spaces on the edge of the city.** These have plenty of room, so we can pair a booth with a red carpet and a larger backdrop display.
+- **Barns and event spaces on the edge of the city.** These have plenty of room, so we can pair a booth with a larger backdrop display.
 - **Restaurants and private dining rooms near Canton Street and the Square.** Space is tighter here, so the compact open-air booth is usually the best fit.
 - **Hotels and banquet rooms.** We coordinate with the venue contact for load-in times and elevator access.
 - **Backyards, patios and covered pavilions.** We bring everything we need and ask only for a flat spot, shade if the weather is hot, and a nearby outlet.
 - **Offices and corporate spaces.** Many of the companies around north Fulton host events with us, and we can add branded overlays and logo templates.
 
 <figure>
-<img src="/assets/img/red-carpet-photo-booth-setup-atlanta.webp" alt="Red carpet and open-air photo booth setup for an event near Roswell GA" loading="lazy">
-<figcaption>A red carpet and stanchions turn the booth into an arrival moment.</figcaption>
+<img src="/assets/img/hedge-wall-photo-booth-atlanta.webp" alt="Open-air photo booth with a hedge wall backdrop for an event near Roswell GA" loading="lazy">
+<figcaption>An open-air booth with a hedge wall backdrop fits barns, ballrooms and backyards.</figcaption>
 </figure>
 
 ## How booking works
@@ -101,7 +101,7 @@ Popular Roswell dates, especially spring and fall Saturdays, fill up early, so r
 
 **Weddings.** Choose a glam or open-air booth with a custom strip that matches your invitations. Add a guest book so guests leave a printed photo and a note. Many couples keep the open-air booth running through dinner and the dance floor.
 
-**Quinceañeras and sweet 16 parties.** The 360 video booth is the star here, paired with a bright backdrop and a red carpet entrance. Pink, gold and white themes photograph beautifully.
+**Quinceañeras and sweet 16 parties.** The 360 video booth is the star here, paired with a bright backdrop. Pink, gold and white themes photograph beautifully.
 
 **Corporate and holiday events.** Add a branded overlay and logo template so every photo doubles as marketing. Guests post them, and your company name travels with them.
 

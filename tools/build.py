@@ -68,7 +68,7 @@ def breadcrumb(items):
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(items)]}
 
-ROSE_LINK = '<link rel="stylesheet" href="/assets/rose.css?ver=3">\n'
+ROSE_LINK = '<link rel="stylesheet" href="/assets/rose.css?ver=4">\n'
 PHONE = "(943) 255-2632"; PHONE_TEL = "+19432552632"
 
 def rose_page(title, desc, canonical, body, og_image, og_type="website", extra_schema=None):
@@ -156,9 +156,9 @@ SNIPPETS = {
 <tr><td>360 video booth</td><td>From $175</td><td>Quinceañeras, birthdays, graduations</td></tr>
 <tr><td>Glam booth</td><td>From $200</td><td>Weddings, galas, milestone birthdays</td></tr>
 <tr><td>Enclosed booth</td><td>From $225</td><td>Classic strips, reunions, school events</td></tr></tbody></table>
-<p>Prices are before sales tax. Your final quote depends on the booth, how long you need it, your date and how far we travel, and we send a clear all-in price before you book. Extras such as a guest book, red carpet and stanchions, an audio guest book and larger 4x6 prints can be added to any booking, and the White Flower Wall backdrop is available as an upgrade.</p>""",
+<p>Prices are before sales tax. Your final quote depends on the booth, how long you need it, your date and how far we travel, and we send a clear all-in price before you book. Add-ons such as a guest book or an upgraded backdrop can be included with any booking.</p>""",
 "INCLUDED": """<div class="key"><strong>What is included with every booking</strong><ul>
-<li>Delivery, setup and teardown</li><li>A friendly on-site attendant who helps guests all night</li>
+<li>Unlimited instant prints</li><li>Delivery, setup and teardown</li><li>A friendly on-site attendant who helps guests all night</li>
 <li>Professional lighting and a modern camera setup</li><li>A fun prop box and a backdrop you choose</li>
 <li>A custom template or overlay with your names, date or logo</li><li>Digital sharing so guests can send photos straight to their phones</li></ul></div>""",
 "BOOKING": """<ol><li><strong>Tell us about your event.</strong> Send your date, city and ZIP through the quote form. That is all we need for a real price.</li>

@@ -102,3 +102,7 @@
 .qf-btn:disabled{opacity:.7;}
 .qf-foot{text-align:center;font-size:14px;color:var(--muted);margin:18px 0 0;}
 .qf-foot a{color:var(--pink2);}
+.qf-inc{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:22px 0 0;}
+.qf-inc li{background:rgba(255,46,147,.12);border:1px solid rgba(255,46,147,.4);color:#fff;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;}
+.qf-inc li:before{content:"✓ ";color:#FF2E93;}
+.qf-note{color:#CDBFC7;font-size:14px;margin:-6px 0 16px;line-height:1.6;}.qf-note strong{color:#fff;}
