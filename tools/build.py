@@ -49,7 +49,7 @@ def page(title, desc, canonical, body, og_image, og_type="website", extra_schema
     head = "".join([
         f"<title>{esc(title)}</title>\n",
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap">\n',
-        '<link rel="stylesheet" href="/assets/main.css?ver=4.8">\n<link rel="stylesheet" href="/assets/pink.css?ver=7">\n',
+        '<link rel="stylesheet" href="/assets/main.css?ver=4.8">\n<link rel="stylesheet" href="/assets/pink.css?ver=8">\n',
         f'<meta name="description" content="{esc(desc)}">\n',
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">\n',
         '<meta name="author" content="SI Photo Booth Atlanta">\n',
@@ -73,7 +73,7 @@ PHONE = "(943) 255-2632"; PHONE_TEL = "+19432552632"
 
 def rose_page(title, desc, canonical, body, og_image, og_type="website", extra_schema=None):
     html_ = page(title, desc, canonical, '<div class="rose">' + body + '</div>', og_image, og_type, extra_schema)
-    return html_.replace('<link rel="stylesheet" href="/assets/pink.css?ver=7">\n', '<link rel="stylesheet" href="/assets/pink.css?ver=7">\n' + ROSE_LINK, 1)
+    return html_.replace('<link rel="stylesheet" href="/assets/pink.css?ver=8">\n', '<link rel="stylesheet" href="/assets/pink.css?ver=8">\n' + ROSE_LINK, 1)
 
 def slugify(t):
     return re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", t).lower()).strip("-")
@@ -149,6 +149,34 @@ def post_page(p, posts=()):
     return rose_page(f'{p["title"]} | SI Photo Booth Atlanta', p["desc"], url, body,
                 p["image"] or f"{SITE}/assets/img/fun-group-photo-booth-atlanta.webp", "article", schemas)
 
+
+SNIPPETS = {
+"PRICING": """<table><thead><tr><th>Booth</th><th>Starting price</th><th>Best for</th></tr></thead><tbody>
+<tr><td>Open-air booth</td><td>From $175</td><td>Weddings, parties, corporate events</td></tr>
+<tr><td>360 video booth</td><td>From $175</td><td>Quinceañeras, birthdays, graduations</td></tr>
+<tr><td>Glam booth</td><td>From $200</td><td>Weddings, galas, milestone birthdays</td></tr>
+<tr><td>Enclosed booth</td><td>From $225</td><td>Classic strips, reunions, school events</td></tr></tbody></table>
+<p>Prices are before sales tax. Your final quote depends on the booth, how long you need it, your date and how far we travel, and we send a clear all-in price before you book. Extras such as a guest book, red carpet and stanchions, an audio guest book and larger 4x6 prints can be added to any booking, and the White Flower Wall backdrop is available as an upgrade.</p>""",
+"INCLUDED": """<div class="key"><strong>What is included with every booking</strong><ul>
+<li>Delivery, setup and teardown</li><li>A friendly on-site attendant who helps guests all night</li>
+<li>Professional lighting and a modern camera setup</li><li>A fun prop box and a backdrop you choose</li>
+<li>A custom template or overlay with your names, date or logo</li><li>Digital sharing so guests can send photos straight to their phones</li></ul></div>""",
+"BOOKING": """<ol><li><strong>Tell us about your event.</strong> Send your date, city and ZIP through the quote form. That is all we need for a real price.</li>
+<li><strong>Get a clear quote.</strong> We reply with the booth options that fit your event and the all-in price.</li>
+<li><strong>Reserve your date.</strong> A deposit holds your date and we confirm the details in writing.</li>
+<li><strong>We handle the rest.</strong> We confirm venue details, arrive early, set up, run the booth and clean up when the night is done.</li></ol>""",
+}
+FAQ_COMMON = """<h3>How much does a photo booth cost in {city}?</h3><p>Starting prices are $175 for open-air and 360 video booths, $200 for the glam booth and $225 for the enclosed booth. Your final price depends on the booth, how long you need it and your date, and we send a clear all-in quote before you commit.</p>
+<h3>How much space does a photo booth need?</h3><p>An open-air booth needs roughly a 10 by 10 foot area and the 360 booth needs a little more room for the platform. We will check your layout with you ahead of time.</p>
+<h3>Can you customize the photo strips?</h3><p>Yes. Every booking includes a custom template with your names, event date, colors or company logo.</p>
+<h3>Do you provide an attendant?</h3><p>Yes. A friendly attendant stays with the booth from start to finish, helps guests and keeps everything running smoothly.</p>
+<h3>How far in advance should I book?</h3><p>Wedding and holiday dates fill months ahead, so contact us as soon as you have a date. We can sometimes take last minute events, so it never hurts to ask.</p>"""
+
+def expand_snippets(body, city):
+    for k, v in SNIPPETS.items():
+        body = body.replace("{{" + k + "}}", v)
+    return body.replace("{{FAQ_COMMON}}", FAQ_COMMON.replace("{city}", city))
+
 def load_cities():
     out = []
     for f in sorted((ROOT / "cities").glob("*.md")):
@@ -161,7 +189,8 @@ def load_cities():
         body = m.group(2).strip()
         if not body.lstrip().startswith("<"):
             import markdown
-            body = markdown.markdown(body, extensions=["extra"])
+            body = markdown.markdown(body, extensions=["extra", "md_in_html"])
+        body = expand_snippets(body, meta["city"])
         out.append(dict(slug=f.stem, city=meta["city"], state=meta.get("state", "GA"), title=meta["title"], desc=meta["description"],
                         image=meta.get("image", "/assets/img/wedding-photo-booth-atlanta.webp"), lead=meta.get("lead", ""), body=body))
     return out

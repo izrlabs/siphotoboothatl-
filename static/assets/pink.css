@@ -6,3 +6,8 @@
 ::-webkit-scrollbar-thumb{background:rgba(255,46,147,.4);}
 #si-nav.scrolled{background:rgba(10,6,9,.96);border-bottom:1px solid rgba(255,46,147,.25);}
 footer{background:#050304!important;border-top:1px solid rgba(255,46,147,.2)!important;}
+/* floating quote button: always visible on every page */
+.float-book{opacity:1!important;pointer-events:auto!important;background:linear-gradient(135deg,#FF2E93,#D81B7A)!important;color:#fff!important;box-shadow:0 10px 34px rgba(255,46,147,.5)!important;animation:fbpulse 2.6s ease-in-out infinite;}
+@keyframes fbpulse{0%,100%{box-shadow:0 10px 34px rgba(255,46,147,.45)}50%{box-shadow:0 10px 44px rgba(255,46,147,.85)}}
+/* homepage hero: clearer photo, no tint */
+.hero-overlay{background:linear-gradient(180deg,rgba(6,6,6,.25) 0%,rgba(6,6,6,.45) 55%,#060606 100%)!important;}
