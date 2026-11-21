@@ -419,7 +419,7 @@ cv.addEventListener('touchstart',st,{passive:false});cv.addEventListener('touchm
 $('#bk-clear').addEventListener('click',function(){cx.clearRect(0,0,cv.width,cv.height);drawn=false;});
 function fmtDate(d){var a=(d||'').split('-');return a.length===3?a[1]+'/'+a[2]+'/'+a[0]:d;}
 function nextInvoice(){var fb='INV-'+new Date().toISOString().slice(5,10).replace('-','')+'-'+new Date().toTimeString().slice(0,5).replace(':','');
- return fetch('https://api.counterapi.dev/v1/si-photo-booth-quotes-7k2m/invoices/up').then(function(r){return r.json();}).then(function(j){return (j&&j.count)?'INV-'+j.count:fb;}).catch(function(){return fb;});}
+ return fetch('https://abacus.jasoncameron.dev/hit/siphotoboothatl/invoices').then(function(r){return r.json();}).then(function(j){return (j&&j.value)?'INV-'+j.value:fb;}).catch(function(){return fb;});}
 f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');err.textContent='';
  var req=['name','email','phone','event_date','start_time','venue','address','city','zip'];
  for(var i=0;i<req.length;i++){var el=f.elements[req[i]];if(!el.value.trim()||(req[i]==='zip'&&!/^[0-9]{5}$/.test(el.value))||(req[i]==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value))){err.textContent='Please complete: '+req[i].replace('_',' ')+'.';el.focus();return;}}
