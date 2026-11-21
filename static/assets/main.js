@@ -128,3 +128,19 @@ el.addEventListener('click',open);el.addEventListener('focus',open);});})();
 (function(){var h=document.getElementById('addons-val');if(!h)return;var bs=document.querySelectorAll('.qa');
 function up(){var v=[];bs.forEach(function(b){if(b.checked)v.push(b.value);});h.value=v.join(', ');}
 bs.forEach(function(b){b.addEventListener('change',up);});})();
+
+/* floating quote button: hide while another quote button or the quote form is on screen */
+(function(){
+  var fb=document.getElementById('floatBook'); if(!fb) return;
+  if(/\/get-a-quote\//.test(location.pathname)){fb.classList.add('fb-hide');return;}
+  function sel(){return Array.prototype.filter.call(document.querySelectorAll('a[href*="get-a-quote"],a.rose-btn,.mobile-cta-bar,.rose-band,.hero-wrap .btn'),function(e){return e!==fb;});}
+  var els=[];
+  function check(){
+    var vh=window.innerHeight,hit=false;
+    for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(r.height>0&&r.bottom>60&&r.top<vh-40){hit=true;break;}}
+    fb.classList.toggle('fb-hide',hit);
+  }
+  window.addEventListener('load',function(){els=sel();check();});
+  window.addEventListener('scroll',check,{passive:true});
+  window.addEventListener('resize',check);
+})();

@@ -21,3 +21,5 @@ footer{background:#050304!important;border-top:1px solid rgba(255,46,147,.2)!imp
 .bd-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .5s;}
 .bd-card:hover img{transform:scale(1.05);}
 .bd-card figcaption{padding:12px 14px;font-weight:700;font-size:14px;color:#fff;text-align:center;}
+.float-book{transition:opacity .3s ease!important;}
+.float-book.fb-hide{opacity:0!important;pointer-events:none!important;}
