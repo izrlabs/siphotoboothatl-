@@ -11,3 +11,7 @@ footer{background:#050304!important;border-top:1px solid rgba(255,46,147,.2)!imp
 @keyframes fbpulse{0%,100%{box-shadow:0 10px 34px rgba(255,46,147,.45)}50%{box-shadow:0 10px 44px rgba(255,46,147,.85)}}
 /* homepage hero: clearer photo, no tint */
 .hero-overlay{background:linear-gradient(180deg,rgba(6,6,6,.25) 0%,rgba(6,6,6,.45) 55%,#060606 100%)!important;}
+/* quote button: small, fixed to the right side, follows the page */
+.float-book{position:fixed!important;right:18px!important;left:auto!important;bottom:22px!important;top:auto!important;transform:none!important;font-size:11px!important;letter-spacing:.08em!important;padding:11px 20px!important;z-index:9999!important;}
+.float-book:hover{transform:translateY(-2px)!important;}
+@media(max-width:700px){.float-book{right:12px!important;bottom:76px!important;font-size:10.5px!important;padding:10px 16px!important;}}
