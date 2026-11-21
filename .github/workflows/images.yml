@@ -17,6 +17,7 @@ jobs:
           python-version: "3.12"
       - run: pip install pillow
       - run: python tools/fetch_images.py
+        continue-on-error: true
       - name: Commit new images and redeploy
         env:
           GH_TOKEN: ${{ github.token }}

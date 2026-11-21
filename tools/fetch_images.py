@@ -17,11 +17,13 @@ for i, it in enumerate(items):
         url = it["url"]
     else:
         q = urllib.parse.quote(it["prompt"])
-        url = f"https://image.pollinations.ai/prompt/{q}?width=1344&height=896&model=flux&nologo=true&seed={1000+i}"
+        base = f"https://image.pollinations.ai/prompt/{q}?width=1344&height=896&nologo=true&seed={1000+i}"
+        url = base
     data = None
     for attempt in range(5):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; si-site-build)"})
+            u = url if it.get("url") else url + ("&model=flux" if attempt < 3 else "&model=turbo")
+            req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (compatible; si-site-build)"})
             with urllib.request.urlopen(req, timeout=120) as r:
                 data = r.read()
             Image.open(io.BytesIO(data)).verify()
@@ -29,7 +31,7 @@ for i, it in enumerate(items):
         except Exception as e:
             print("retry", it["file"], attempt, e, flush=True)
             data = None
-            time.sleep(8 * (attempt + 1))
+            time.sleep(15 * (attempt + 1))
     if not data:
         print("FAILED", it["file"], flush=True); continue
     im = Image.open(io.BytesIO(data)).convert("RGB")
@@ -37,5 +39,6 @@ for i, it in enumerate(items):
     im.save(dest, "WEBP", quality=82)
     made += 1
     print("saved", dest.name, im.size, flush=True)
-    time.sleep(4)
+    time.sleep(10)
 print("new images:", made)
+sys.exit(0)
