@@ -112,7 +112,7 @@ if(bk&&bk!=='unsure')parts.push(['booth',bk]);
 var qs=parts.filter(function(x){return x[1];}).map(function(x){return x[0]+'='+encodeURIComponent(x[1]);}).join('&');
 var l=f.elements['booking_link'];if(!l){l=document.createElement('input');l.type='hidden';l.name='booking_link';f.appendChild(l);}
 l.value=location.origin+base+BOOK_PATH+'#'+qs;})();
-f.elements['_subject'].value='Quote #'+num+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip')+' | SI Photo Booth';
+f.elements['_subject'].value='Quote #'+num+' | '+(d||'No date yet')+' | '+g('city')+' '+g('zip');
 var u=f.getAttribute('action').replace('formsubmit.co/','formsubmit.co/ajax/');
 return fetch(u,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
 }).then(function(r){return r.json();}).then(function(d2){

@@ -434,7 +434,7 @@ f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');
   f.elements.status.value='SIGNED CONTRACT - deposit due $'+DEPOSIT+' - Invoice '+inv;
   var pk=NAMES[s.booth]+', '+HL(s.hrs)+(s.adds.length?' + '+s.adds.map(function(a){return ADDN[a.k];}).join(', '):'');
   f.elements.package_summary.value=pk;f.elements.total_summary.value='Total '+money(s.sub)+' + tax | Deposit '+money(DEPOSIT)+(QNUM?' | Quote #'+QNUM:'');
-  f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv+' | SI Photo Booth';
+  f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv;
   var fd=new FormData(f);fd.append('agreement_signed_at',new Date().toString());fd.append('agreement_text',$('#bk-terms').innerText);
   return fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){if(!(j&&(j.success===true||j.success==='true')))throw new Error('x');return inv;});
  }).then(function(inv){showInvoice(inv,s);}).catch(function(){btn.disabled=false;btn.textContent='Sign & Book My Date';err.textContent='Sorry, something went wrong. Please call or text (943) 255-2632.';});});

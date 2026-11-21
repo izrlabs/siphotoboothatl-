@@ -16,7 +16,7 @@ html,body{background:#060606!important;margin:0!important;padding:0!important;}
 <meta name="google-site-verification" content="nf45iQnAqRK-ZJpjLRB6p2H1cYwc7uhJCq0oxeYX7AA" />
 <title>Book Your Date | SI Photo Booth</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/main.css?ver=5.1">
+<link rel="stylesheet" href="/assets/main.css?ver=5.2">
 <meta name="description" content="Choose your photo booth, sign the rental agreement and get your invoice.">
 <meta name="keywords" content="book photo booth Atlanta, photo booth rental quote Atlanta GA, hire photo booth Atlanta, photo booth rental near me Atlanta, affordable photo booth Atlanta Georgia">
 <meta name="robots" content="noindex, nofollow">
@@ -435,7 +435,7 @@ f.addEventListener('submit',function(e){e.preventDefault();var err=$('#bk-err');
   f.elements.status.value='SIGNED CONTRACT - deposit due $'+DEPOSIT+' - Invoice '+inv;
   var pk=NAMES[s.booth]+', '+HL(s.hrs)+(s.adds.length?' + '+s.adds.map(function(a){return ADDN[a.k];}).join(', '):'');
   f.elements.package_summary.value=pk;f.elements.total_summary.value='Total '+money(s.sub)+' + tax | Deposit '+money(DEPOSIT)+(QNUM?' | Quote #'+QNUM:'');
-  f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv+' | SI Photo Booth';
+  f.elements._subject.value='SIGNED CONTRACT | '+f.elements.name.value+' | '+fmtDate(f.elements.event_date.value)+' | '+f.elements.city.value+' '+f.elements.zip.value+' | '+inv;
   var fd=new FormData(f);fd.append('agreement_signed_at',new Date().toString());fd.append('agreement_text',$('#bk-terms').innerText);
   return fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){return r.json();}).then(function(j){if(!(j&&(j.success===true||j.success==='true')))throw new Error('x');return inv;});
  }).then(function(inv){showInvoice(inv,s);}).catch(function(){btn.disabled=false;btn.textContent='Sign & Book My Date';err.textContent='Sorry, something went wrong. Please call or text (943) 255-2632.';});});
@@ -505,5 +505,5 @@ function showInvoice(inv,s){var rows='<tr><td>'+esc(NAMES[s.booth])+', '+HL(s.hr
     </div>
   </div>
 </div>
-<script src="/assets/main.js?ver=5.1"></script>
+<script src="/assets/main.js?ver=5.2"></script>
 </body></html>
