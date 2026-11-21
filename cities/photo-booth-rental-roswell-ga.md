@@ -3,7 +3,7 @@ city: Roswell
 state: GA
 title: Photo Booth Rental in Roswell, GA
 description: Photo booth rental in Roswell, GA for weddings, quinceañeras, corporate events and parties. Open-air, glam, enclosed and 360 video booths with a friendly attendant, setup and teardown included.
-lead: Open-air, glam, enclosed and 360 video booths for Roswell weddings, parties and company events. Setup, teardown and a friendly attendant are always included, and there is no travel fee inside our Atlanta service area.
+lead: Open-air, glam, enclosed and 360 video booths for Roswell weddings, parties and company events. Unlimited instant prints, setup, teardown and a friendly attendant are always included, and any travel is quoted clearly up front.
 image: /assets/img/wedding-couple-hedge-wall-photo-booth-atlanta.webp
 ---
 
@@ -12,8 +12,8 @@ If you are planning an event in Roswell, a photo booth is one of the easiest way
 <div class="rose-stats">
 <div class="rose-stat"><b>4</b><span>booth styles to choose from</span></div>
 <div class="rose-stat"><b>$175+</b><span>starting prices, see below</span></div>
-<div class="rose-stat"><b>$0</b><span>travel fee inside our service area</span></div>
-<div class="rose-stat"><b>24 hr</b><span>typical quote reply time</span></div>
+<div class="rose-stat"><b>Free</b><span>custom photo template</span></div>
+<div class="rose-stat"><b>Unlimited</b><span>instant prints with every booking</span></div>
 </div>
 
 ## Why Roswell events work so well with a photo booth
@@ -58,7 +58,7 @@ Prices depend on the booth you choose, the length of your event, the date, and h
 | Glam booth | From $200 | Weddings, galas, milestone birthdays |
 | Enclosed booth | From $225 | Classic strips, reunions, school events |
 
-Prices are before sales tax, and longer events cost more because we staff the booth for the whole time. Roswell sits inside the area where we do not charge a travel fee. Every booking includes unlimited instant prints, a friendly attendant and a custom photo template. Add-ons such as a guest book or an upgraded backdrop can be included on request.
+Prices are before sales tax, and longer events cost more because we staff the booth for the whole time. Any travel to Roswell is quoted up front, so there are no surprises. Every booking includes unlimited instant prints, a friendly attendant and a custom photo template. Add-ons such as a guest book or an upgraded backdrop can be included on request.
 
 <div class="key">
 <strong>What is included with every booking</strong>
@@ -119,7 +119,7 @@ Popular Roswell dates, especially spring and fall Saturdays, fill up early, so r
 
 ### Do you travel to Roswell, GA?
 
-Yes. Roswell is inside our Atlanta service area, so there is no travel fee for events in Roswell and the surrounding north Fulton area.
+Yes. We serve Roswell and the surrounding north Fulton area, and any travel is included in your quote up front.
 
 ### How much does a photo booth cost in Roswell?
 

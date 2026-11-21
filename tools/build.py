@@ -241,11 +241,10 @@ def load_cities():
         for line in m.group(1).splitlines():
             if ":" in line:
                 k, v = line.split(":", 1); meta[k.strip()] = v.strip()
-        body = m.group(2).strip()
+        body = expand_snippets(m.group(2).strip(), meta["city"])
         if not body.lstrip().startswith("<"):
             import markdown
-            body = markdown.markdown(body, extensions=["extra", "md_in_html"])
-        body = expand_snippets(body, meta["city"])
+            body = markdown.markdown(body, extensions=["extra"])
         out.append(dict(slug=f.stem, city=meta["city"], state=meta.get("state", "GA"), title=meta["title"], desc=meta["description"],
                         image=meta.get("image", "/assets/img/wedding-photo-booth-atlanta.webp"), lead=meta.get("lead", ""), body=body))
     return out
