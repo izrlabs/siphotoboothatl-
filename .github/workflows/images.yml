@@ -27,5 +27,6 @@ jobs:
           git add static/assets/img
           if git diff --cached --quiet; then echo "no new images"; exit 0; fi
           git commit -m "Add images from images.json"
+          git pull --rebase origin main
           git push
           gh workflow run deploy.yml --ref main
