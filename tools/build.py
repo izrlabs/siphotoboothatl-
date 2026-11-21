@@ -95,6 +95,60 @@ def faq_schema(body):
               "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", a)).strip()}} for q, a in qs]
     return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": items} if items else None
 
+
+IMG_ALT = {
+"wedding-couple-polaroid-photo-booth-atlanta":"Wedding couple photo booth print in a polaroid style frame, Atlanta GA",
+"wedding-couple-hedge-wall-photo-booth-atlanta":"Wedding couple posing at a hedge wall photo booth backdrop in Atlanta",
+"wedding-photo-booth-atlanta":"Wedding photo booth rental setup and guests in Atlanta GA",
+"bridal-party-photo-booth-atlanta":"Bridal party having fun at a photo booth in Atlanta",
+"wedding-photo-booth-backdrop-collage-atlanta":"Collage of wedding photo booth backdrops available in Atlanta",
+"glam-booth-black-and-white-atlanta":"Glam booth black and white portrait of two friends at an Atlanta event",
+"glam-booth-couple-black-and-white-atlanta":"Black and white glam booth portrait of a couple in formal wear, Atlanta",
+"glam-booth-engagement-photo-atlanta":"Engagement portrait taken in a black and white glam booth in Atlanta",
+"360-photo-booth-atlanta-event":"Guests on the platform of a 360 photo booth at an Atlanta event",
+"360-video-booth-atlanta":"360 video booth rental with slow motion platform in Atlanta GA",
+"birthday-party-photo-booth-atlanta":"Birthday party guests posing at a photo booth in Atlanta",
+"sweet-16-pink-photo-strip-atlanta":"Pink sweet 16 photo booth strip with custom template, Atlanta",
+"friends-photo-booth-atlanta":"Friends laughing together at an Atlanta photo booth",
+"fun-group-photo-booth-atlanta":"Fun group photo booth moment at an Atlanta party",
+"corporate-photo-booth-event-atlanta":"Corporate event photo booth with branded template in Atlanta",
+"group-formal-photo-booth-atlanta":"Group in formal wear at a holiday party photo booth in Atlanta",
+"open-air-booth-atlanta":"Open-air photo booth rental setup in Atlanta GA",
+"enclosed-photo-booth-rental-atlanta":"Enclosed photo booth rental for an Atlanta event",
+"hedge-wall-photo-booth-atlanta":"Green hedge wall photo booth backdrop in Atlanta",
+"white-flower-wall-photo-booth-backdrop-atlanta":"White flower wall photo booth backdrop for Atlanta weddings",
+"iridescent-white-sequin-photo-booth-backdrop-atlanta":"Iridescent white sequin photo booth backdrop in Atlanta",
+"rose-gold-sequin-photo-booth-backdrop-atlanta":"Rose gold sequin photo booth backdrop in Atlanta",
+"black-sequin-photo-booth-backdrop-atlanta":"Black sequin photo booth backdrop for Atlanta galas",
+}
+IMG_TOPICS = {
+"wedding":["wedding-couple-polaroid-photo-booth-atlanta","wedding-couple-hedge-wall-photo-booth-atlanta","bridal-party-photo-booth-atlanta","wedding-photo-booth-atlanta","white-flower-wall-photo-booth-backdrop-atlanta"],
+"glam":["glam-booth-black-and-white-atlanta","glam-booth-couple-black-and-white-atlanta","glam-booth-engagement-photo-atlanta","black-sequin-photo-booth-backdrop-atlanta"],
+"360":["360-photo-booth-atlanta-event","360-video-booth-atlanta","sweet-16-pink-photo-strip-atlanta","fun-group-photo-booth-atlanta"],
+"party":["birthday-party-photo-booth-atlanta","sweet-16-pink-photo-strip-atlanta","friends-photo-booth-atlanta","fun-group-photo-booth-atlanta","rose-gold-sequin-photo-booth-backdrop-atlanta"],
+"corporate":["corporate-photo-booth-event-atlanta","group-formal-photo-booth-atlanta","open-air-booth-atlanta","friends-photo-booth-atlanta"],
+"backdrop":["hedge-wall-photo-booth-atlanta","white-flower-wall-photo-booth-backdrop-atlanta","iridescent-white-sequin-photo-booth-backdrop-atlanta","rose-gold-sequin-photo-booth-backdrop-atlanta","black-sequin-photo-booth-backdrop-atlanta"],
+"general":["open-air-booth-atlanta","enclosed-photo-booth-rental-atlanta","360-video-booth-atlanta","hedge-wall-photo-booth-atlanta","friends-photo-booth-atlanta"],
+}
+def pick_topic(key):
+    k = key.lower()
+    for t, words_ in (("backdrop",("backdrop",)),("glam",("glam",)),("360",("360",)),("wedding",("wedding","hours","bridal")),
+                      ("corporate",("corporate","holiday")),("party",("quince","sweet","birthday","graduation"))):
+        if any(w in k for w in words_): return t
+    return "general"
+def gallery_html(key, exclude="", city=""):
+    t = pick_topic(key)
+    names = [n for n in IMG_TOPICS[t] + IMG_TOPICS["backdrop"] + IMG_TOPICS["general"] if n not in exclude]
+    seen = []; [seen.append(n) for n in names if n not in seen]
+    sfx = f" near {city}" if city else ""
+    figs = "".join(f'<img src="/assets/img/{n}.webp" alt="{IMG_ALT[n]}{sfx}" loading="lazy" width="1000" height="750">' for n in seen[:6])
+    return f'<h3>Photo booth ideas and looks</h3><div class="rose-slider">{figs}</div>'
+def add_gallery(html_, key, exclude="", city=""):
+    g = gallery_html(key, exclude, city)
+    m = list(re.finditer(r"<h2[^>]*>[^<]*(?:Frequently Asked|FAQ)[^<]*</h2>", html_, re.I))
+    if m: i = m[0].start(); return html_[:i] + g + html_[i:]
+    return html_ + g
+
 def words(body): return len(re.sub(r"<[^>]+>", " ", body).split())
 
 def aside(toc, who="this guide"):
@@ -126,6 +180,7 @@ def blog_index(posts):
 
 def post_page(p, posts=()):
     body_html, toc = add_toc(p["body"])
+    body_html = add_gallery(body_html, p["slug"], p.get("image",""))
     mins = max(3, round(words(p["body"]) / 220))
     hero = ('<section class="rose-hero"><div class="rose-hero-in"><div class="rose-crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></div>'
             f'<span class="rose-pill">{esc(p["category"])}</span><h1>{esc(p["title"])}</h1>'
@@ -197,6 +252,7 @@ def load_cities():
 
 def city_page(c, cities):
     body_html, toc = add_toc(c["body"])
+    body_html = add_gallery(body_html, c["slug"].replace("photo-booth-rental-",""), c.get("image",""), c["city"])
     hero = ('<section class="rose-hero"><div class="rose-hero-in"><div class="rose-crumbs"><a href="/">Home</a> / Service areas / ' + esc(c["city"]) + '</div>'
             f'<span class="rose-pill">{esc(c["city"])}, {esc(c["state"])}</span><h1>{esc(c["title"])}</h1>'
             f'<p class="rose-lead">{esc(c["lead"])}</p>'
