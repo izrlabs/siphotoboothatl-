@@ -123,3 +123,8 @@ if(d2&&(d2.success===true||d2.success==='true')){f.innerHTML='<div style="text-a
 (function(){document.querySelectorAll('input[type=date]').forEach(function(el){
 var open=function(){try{if(el.showPicker)el.showPicker();}catch(e){}};
 el.addEventListener('click',open);el.addEventListener('focus',open);});})();
+
+/* quote form: collect add-on checkboxes into one field */
+(function(){var h=document.getElementById('addons-val');if(!h)return;var bs=document.querySelectorAll('.qa');
+function up(){var v=[];bs.forEach(function(b){if(b.checked)v.push(b.value);});h.value=v.join(', ');}
+bs.forEach(function(b){b.addEventListener('change',up);});})();
