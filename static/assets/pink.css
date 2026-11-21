@@ -1,0 +1,53 @@
+/* Sitewide light pink theme (overrides the original dark/gold look) */
+:root{--gold:#C2456E;--gold2:#8E2B4D;--bg:#FFFAF8;--bg2:#FFF1F4;--pk-ink:#33242A;--pk-mut:#6E5A62;--pk-line:#F3D5DE;--pk-deep:#3D1224;}
+body{background:#FFFAF8;color:var(--pk-ink);}
+::selection{background:rgba(194,69,110,.25);color:#33242A;}
+::-webkit-scrollbar-track{background:#FFFAF8;}::-webkit-scrollbar-thumb{background:rgba(194,69,110,.35);}
+/* nav stays a deep rose bar so the logo and links read on any page */
+#si-nav.scrolled{background:rgba(61,18,36,.96);border-bottom:1px solid rgba(255,255,255,.1);}
+.nav-link{color:rgba(255,255,255,.85);} .nav-link:hover,.nav-link.active{color:#FFD3E0;}
+.nav-logo-wrap .text-logo{color:#fff;}
+.mobile-menu{background:var(--pk-deep)!important;}
+/* buttons */
+.btn,.mobile-menu a.btn,.si-form-btn,.pkg-badge{background:linear-gradient(135deg,#A83860,#E27C9B)!important;color:#fff!important;}
+.btn-outline{background:transparent!important;border:1.5px solid #C2456E!important;color:#8E2B4D!important;}
+.hero-wrap .btn-outline,.page-hero .btn-outline,.about-hero .btn-outline{border-color:rgba(255,255,255,.8)!important;color:#fff!important;}
+/* heroes: pink-tinted overlays, white text */
+.hero-overlay{background:linear-gradient(180deg,rgba(94,26,54,.45) 0%,rgba(94,26,54,.7) 55%,#3D1224 100%)!important;}
+.page-hero-overlay,.about-hero-ov{background:linear-gradient(180deg,rgba(94,26,54,.45) 0%,rgba(94,26,54,.85) 80%,#3D1224 100%)!important;}
+.contact-hero{background:linear-gradient(135deg,#5E1A36,#A83860 60%,#E27C9B)!important;}
+.cta-overlay{background:linear-gradient(135deg,rgba(194,69,110,.35),rgba(61,18,36,.85))!important;}
+/* sections */
+.sec{background:#FFFAF8;}
+.sec.bg2,.bg2{background:#FFF1F4!important;}
+.sec-label{color:#C2456E!important;}
+.sec-h2,.sec h2,.sec h3{color:#33242A;}
+.sec h2 em,.sec h1 em,.sec h3 em,.sec-h2 em{color:#C2456E!important;}
+.sec p{color:var(--pk-mut);}
+/* inline-styled text and surfaces inside sections */
+.sec [style*="color:#F0EBE1"],.mar-grid-wrap [style*="color:#F0EBE1"]{color:#33242A!important;}
+.sec [style*="color:rgba(255,255,255"]{color:#6E5A62!important;}
+.sec [style*="color:#C9A96E"],.sec [style*="color:var(--gold)"]{color:#C2456E!important;}
+.sec [style*="background:#0d0d0d"],.sec [style*="background:#0a0a0a"],.sec [style*="background:#111"],.sec [style*="background:#060606"]{background:#fff!important;}
+.sec [style*="border:1px solid rgba(255,255,255"],.sec [style*="border-bottom:1px solid rgba(255,255,255"],.sec [style*="border-top:1px solid rgba(255,255,255"]{border-color:#F3D5DE!important;}
+.sec [style*="border:1px solid rgba(201,169,110"]{border-color:#F3D5DE!important;}
+/* component classes */
+.service-card,.pkg-card,.value-card,.blog-card,.blog-featured,.why-card,.faq-item,.mar-booth,.mar-guar-item,.mar-grid-item,.ci-item{background:#fff!important;border:1px solid #F3D5DE!important;box-shadow:0 8px 30px rgba(194,69,110,.07);}
+.pkg-card.popular,.mar-booth.featured{background:#FFF1F4!important;border-color:#C2456E!important;}
+.mar-booths,.mar-guarantees,.mar-grid-wrap{background:#FFF1F4!important;}
+.mar-stats,.mar-stat{background:transparent;}
+.mar-stat-num{color:#C2456E!important;}.mar-stat-lbl{color:#6E5A62!important;}
+.mar-booth-name,.service-card h3,.pkg-card h3,.why-title,.faq-q,.post-title,.value-card h3{color:#33242A!important;}
+.mar-booth-desc,.mar-feat-list li,.why-desc,.faq-ans-inner,.post-excerpt,.service-card p,.pkg-card p,.value-card p,.ci-value{color:#6E5A62!important;}
+.mar-feat-list li{border-bottom-color:#F3D5DE!important;}
+.mar-booth-tag,.ci-label,.post-cat{color:#C2456E!important;}
+.faq-btn{color:#33242A!important;background:transparent!important;}.faq-icon{color:#C2456E!important;}
+.gal-title{color:#fff;}
+/* forms */
+.si-form input,.si-form select,.si-form textarea{background:#fff9fb!important;color:#33242A!important;border:1.5px solid #f0d3dc!important;}
+.si-form label{color:#33242A;}
+.si-form select option{background:#fff;color:#33242A;}
+/* footer */
+footer{background:#3D1224!important;border-top:none!important;}
+footer,footer a,.footer-link{color:rgba(255,255,255,.78);}
+.footer-col-title{color:#FFD3E0!important;}
