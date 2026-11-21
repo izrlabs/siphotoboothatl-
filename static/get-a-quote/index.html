@@ -18,7 +18,7 @@ html,body{background:#060606!important;margin:0!important;padding:0!important;}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="/assets/main.css?ver=5.6">
 <link rel="stylesheet" href="/assets/pink.css?ver=9">
-<link rel="stylesheet" href="/assets/rose.css?ver=4">
+<link rel="stylesheet" href="/assets/rose.css?ver=5">
 <meta name="description" content="Book SI Photo Booth for your Atlanta event — weddings, corporate, proms, birthdays, graduations, quinceañeras &amp; more. Serving all of Georgia. Get a free quote today!">
 <meta name="keywords" content="book photo booth Atlanta, photo booth rental quote Atlanta GA, hire photo booth Atlanta, photo booth rental near me Atlanta, affordable photo booth Atlanta Georgia">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -155,37 +155,43 @@ window.addEventListener('scroll',function(){
 
 <!-- QUOTE (rose theme) -->
 <div class="rose">
-<section class="rose-hero" style="padding-bottom:50px;"><div class="rose-hero-in">
-<div class="rose-crumbs"><a href="/">Home</a> / Get a Quote</div>
-<span class="rose-pill">Free &amp; fast</span>
-<h1>Check your date &amp; get your quote</h1>
-<p class="rose-lead">Tell us your date and where your event is. We reply with a clear, all-in price for your Atlanta photo booth rental, usually within a few hours.</p>
-<ul class="qf-inc"><li>Unlimited instant prints</li><li>Friendly on-site attendant</li><li>Custom photo templates</li><li>Digital sharing to phones</li></ul>
+<section class="rose-hero qf-hero"><div class="rose-hero-in">
+<h1>Get your quote</h1>
+<ul class="qf-inc"><li>Unlimited instant prints</li><li>Friendly attendant</li><li>Custom photo templates</li></ul>
 </div></section>
 <section class="qf-wrap">
 <form class="si-form qf" action="https://formsubmit.co/siphotoboothatl@gmail.com" method="POST">
-<h2 class="qf-h">Is your date open? Tell us about it</h2>
+<h2 class="qf-h" id="qs1"><span class="qf-n">1</span>Your event</h2>
 <div class="qf-grid">
-<label>Your Name<input type="text" name="name" placeholder="Your name"></label>
-<label>Email<input type="email" name="email" placeholder="you@email.com"></label>
-<label>Phone<input type="tel" name="phone" placeholder="E.g. 404 555 0123"></label>
+<label>Your Name<input type="text" name="name"></label>
+<label>Email<input type="email" name="email"></label>
+<label>Phone<input type="tel" name="phone"></label>
 <label>Event Date<input type="date" name="event_date"></label>
 <label>Event Type<select name="event_type"><option>Wedding</option><option>Corporate Event</option><option>Birthday</option><option>Quinceañera</option><option>Sweet 16</option><option>Graduation</option><option>Prom / School Event</option><option>Holiday Party</option><option>Other</option></select></label>
-<label>Venue Name / Street Address<input type="text" name="venue" placeholder="Optional"></label>
-<label>City *<input type="text" name="city" required placeholder="E.g. Roswell"></label>
-<label>ZIP Code *<input type="text" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code" placeholder="E.g. 30075"></label>
+<label>Venue Name / Address (optional)<input type="text" name="venue"></label>
+<label>City *<input type="text" name="city" required></label>
+<label>ZIP Code *<input type="text" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code"></label>
 </div>
-<h2 class="qf-h">Which booth fits your event?</h2>
+<h2 class="qf-h" id="qs2"><span class="qf-n">2</span>Pick a booth</h2>
 <p class="qf-note">Every booth includes <strong>unlimited instant prints</strong>, a <strong>friendly attendant</strong> for the whole event and a <strong>custom photo template</strong> designed to match your event.</p>
-<p class="qf-sub">Pick the one you like best. You can change it later, and we will help you decide.</p>
+<p class="qf-sub">Not sure? Pick the closest one. We will help you decide.</p>
 <div class="qb-grid"><label class="qb-card"><input type="radio" name="booth" value="open-air"><div class="qb-img"><img src="/assets/img/open-air-booth-atlanta.webp" alt="Open-air photo booth rental in Atlanta" loading="lazy"></div><div class="qb-body"><div class="qb-top"><h3>Open-Air Photo Booth</h3><span class="qb-price">From $175</span></div><p>A classic photo booth experience with a modern setup. Big groups fit in the frame, and guests get instant prints and digital copies.</p><span class="qb-sel">Select</span></div></label><label class="qb-card"><input type="radio" name="booth" value="360"><div class="qb-img"><img src="/assets/img/360-video-booth-atlanta.webp" alt="360 video booth rental in Atlanta" loading="lazy"></div><div class="qb-body"><div class="qb-top"><h3>360 Video Booth</h3><span class="qb-price">From $175</span></div><p>Guests stand on the platform while the camera spins, creating fun slow-motion videos they can share in seconds.</p><span class="qb-sel">Select</span></div></label><label class="qb-card"><input type="radio" name="booth" value="glam"><div class="qb-img"><img src="/assets/img/glam-booth-black-and-white-atlanta.webp" alt="Glam photo booth rental in Atlanta" loading="lazy"></div><div class="qb-body"><div class="qb-top"><h3>Glam Booth</h3><span class="qb-price">From $200</span></div><p>Soft studio lighting and a black-and-white, red-carpet style finish that makes every guest look like a star.</p><span class="qb-sel">Select</span></div></label><label class="qb-card"><input type="radio" name="booth" value="enclosed"><div class="qb-img"><img src="/assets/img/enclosed-photo-booth-rental-atlanta.webp" alt="Enclosed photo booth rental in Atlanta" loading="lazy"></div><div class="qb-body"><div class="qb-top"><h3>Enclosed Photo Booth</h3><span class="qb-price">From $225</span></div><p>The classic private booth. Guests step inside, pull the curtain and walk out with a keepsake strip.</p><span class="qb-sel">Select</span></div></label><label class="qb-card"><input type="radio" name="booth" value="unsure"><div class="qb-img"><img src="/assets/img/wedding-photo-booth-backdrop-collage-atlanta.webp" alt="Photo booth backdrops and options in Atlanta" loading="lazy"></div><div class="qb-body"><div class="qb-top"><h3>Not sure yet</h3><span class="qb-price">Help me choose</span></div><p>Tell us about your event and we will recommend the best booth and backdrop for your guests and your space.</p><span class="qb-sel">Select</span></div></label></div>
-<h2 class="qf-h">Anything we should know?</h2>
+<h2 class="qf-h" id="qs3"><span class="qf-n">3</span>Anything we should know?</h2>
 <label class="qf-full"><textarea name="message" rows="4" placeholder="Theme, colors, timeline, anything we should know (optional)"></textarea></label>
 <label class="qf-consent"><input type="checkbox" name="sms_ok" value="yes"> I agree to receive text messages from SI Photo Booth about my inquiry. Message and data rates may apply. Reply STOP to opt out.</label>
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"><input type="hidden" name="_subject" value="New Quote Request - SI Photo Booth"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
 <button type="submit" class="si-form-btn qf-btn">Get My Free Quote</button>
 <p class="qf-foot">Questions? Call or text <a href="tel:+19432552632">(943) 255-2632</a> or email <a href="mailto:siphotoboothatl@gmail.com">siphotoboothatl@gmail.com</a></p>
 </form>
+<script>(function(){var f=document.querySelector('form.qf');if(!f)return;
+function go(id){var e=document.getElementById(id);if(e)window.scrollTo({top:e.getBoundingClientRect().top+window.pageYOffset-96,behavior:'smooth'});}
+var q=function(n){return f.querySelector('[name='+n+']')};
+q('event_date').addEventListener('change',function(){q('event_type').focus();});
+q('event_type').addEventListener('change',function(){q('venue').focus();});
+function zipDone(){if(/^\d{5}$/.test(q('zip').value)&&q('city').value.trim()){go('qs2');}}
+q('zip').addEventListener('input',zipDone);
+f.querySelectorAll('input[name=booth]').forEach(function(r){r.addEventListener('change',function(){setTimeout(function(){go('qs3');},250);});});
+})();</script>
 </section>
 </div>
 

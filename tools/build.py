@@ -68,7 +68,7 @@ def breadcrumb(items):
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(items)]}
 
-ROSE_LINK = '<link rel="stylesheet" href="/assets/rose.css?ver=4">\n'
+ROSE_LINK = '<link rel="stylesheet" href="/assets/rose.css?ver=5">\n'
 PHONE = "(943) 255-2632"; PHONE_TEL = "+19432552632"
 
 def rose_page(title, desc, canonical, body, og_image, og_type="website", extra_schema=None):
