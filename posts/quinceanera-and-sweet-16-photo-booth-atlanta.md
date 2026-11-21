@@ -3,7 +3,7 @@ title: Photo Booth Ideas for a Quinceañera or Sweet 16 in Atlanta
 date: 2026-11-28
 category: Parties
 description: A photo booth is a guest favorite at quinceañeras and Sweet 16 parties. Ideas for backdrops, print templates and the right booth for a big crowd.
-image: /assets/img/friends-photo-booth-atlanta.webp
+image: /assets/img/sweet-16-pink-photo-strip-atlanta.webp
 ---
 
 A quinceañera or Sweet 16 is a milestone, and the photos are part of the memory. A photo booth gives guests something to do and gives the birthday girl a keepsake. Here are ideas to make it great.

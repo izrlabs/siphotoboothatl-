@@ -3,7 +3,7 @@ title: What Is a Glam Booth? A Simple Guide for Atlanta Events
 date: 2026-11-30
 category: Photo Booths
 description: A glam booth gives guests studio-style, flattering portraits. Learn how it works, who it suits and how it differs from an open-air booth.
-image: /assets/img/si-photo-booth-800x600.webp
+image: /assets/img/glam-booth-black-and-white-atlanta.webp
 ---
 
 If you have seen a photo booth that makes everyone look polished, with soft lighting and a magazine feel, you were probably looking at a glam booth. Here is how it works and when to choose one.

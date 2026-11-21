@@ -3,7 +3,7 @@ title: Best Photo Booth Backdrops for Atlanta Weddings and Parties
 date: 2026-11-27
 category: Ideas
 description: Sequin, flower wall or something simple? A guide to choosing a photo booth backdrop that looks great in photos and fits your event.
-image: /assets/img/bridal-party-photo-booth-atlanta.webp
+image: /assets/img/hedge-wall-photo-booth-atlanta.webp
 ---
 
 The backdrop is the first thing guests see, and it sets the look of every photo. Here is how to choose one for your Atlanta wedding or party.

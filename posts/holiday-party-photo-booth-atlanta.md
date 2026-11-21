@@ -3,7 +3,7 @@ title: Holiday Party Photo Booth Ideas for Atlanta Companies and Families
 date: 2026-11-24
 category: Corporate
 description: Booking a photo booth for a December party in Atlanta? Ideas for themes, backdrops, props and timing, plus why holiday dates fill up early.
-image: /assets/img/corporate-photo-booth-event-atlanta.webp
+image: /assets/img/group-formal-photo-booth-atlanta.webp
 ---
 
 December is the busiest month for parties in Atlanta, and a photo booth is one of the easiest ways to keep a holiday crowd happy. Whether it is an office party, a family gathering or a neighborhood celebration, here is how to plan one that guests remember.

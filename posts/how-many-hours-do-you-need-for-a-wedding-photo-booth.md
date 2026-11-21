@@ -3,7 +3,7 @@ title: How Many Hours Do You Need a Photo Booth for Your Wedding?
 date: 2026-11-26
 category: Weddings
 description: Two, three or four hours? A simple way to choose how long to book a wedding photo booth, based on your guest count and schedule.
-image: /assets/img/wedding-photo-booth-atlanta.webp
+image: /assets/img/wedding-couple-polaroid-photo-booth-atlanta.webp
 ---
 
 One of the most common questions couples ask is how long to book the photo booth. The honest answer depends on your guest count and your timeline. Here is a simple way to decide.

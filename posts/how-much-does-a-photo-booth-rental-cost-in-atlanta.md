@@ -3,7 +3,7 @@ title: How Much Does a Photo Booth Rental Cost in Atlanta? (2026 Guide)
 date: 2026-11-25
 category: Planning Tips
 description: What Atlanta photo booth rentals really cost in 2026, what changes the price, and how to compare quotes fairly.
-image: /assets/img/open-air-booth-atlanta.webp
+image: /assets/img/red-carpet-photo-booth-setup-atlanta.webp
 ---
 
 Photo booth prices vary a lot, and two quotes that look different may not include the same things. Here is what to expect in Atlanta and how to compare quotes fairly.

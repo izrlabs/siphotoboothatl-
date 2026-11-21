@@ -3,7 +3,7 @@ title: Graduation Party Photo Booth Ideas in Atlanta
 date: 2026-11-29
 category: Parties
 description: Ideas for photo booth props, backdrops and print templates that make a graduation party memorable, plus when to book for May and June.
-image: /assets/img/fun-group-photo-booth-atlanta.webp
+image: /assets/img/birthday-party-photo-booth-atlanta.webp
 ---
 
 Graduation parties are a chance to celebrate the grad with family and friends, and a photo booth gives everyone a keepsake. Here are ideas for your Atlanta party.
