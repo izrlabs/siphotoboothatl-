@@ -34,4 +34,4 @@ Ask for a custom print template with the guest of honor's name, the date and a d
 
 ## Ready to plan?
 
-Tell us the date, venue and guest count and we will suggest a booth. We serve Atlanta and nearby cities, including [Lawrenceville](/photo-booth-rental-lawrenceville-ga/) and [Roswell](/photo-booth-rental-roswell-ga/). [Request a quote](/contact/).
+Tell us the date, venue and guest count and we will suggest a booth. We serve Atlanta and nearby cities, including [Lawrenceville](/photo-booth-rental-lawrenceville-ga/) and [Roswell](/photo-booth-rental-roswell-ga/). [Request a quote](/get-a-quote/).

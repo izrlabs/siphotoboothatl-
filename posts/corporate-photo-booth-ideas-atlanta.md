@@ -45,4 +45,4 @@ After the event, you get the full gallery of digital photos. Teams can use them 
 
 ## Get a quote
 
-We serve companies across Atlanta, Marietta, Alpharetta, Sandy Springs, Midtown and beyond. [Request your free quote](/contact/) with your date, city and ZIP code, and we will recommend the right setup for your event.
+We serve companies across Atlanta, Marietta, Alpharetta, Sandy Springs, Midtown and beyond. [Request your free quote](/get-a-quote/) with your date, city and ZIP code, and we will recommend the right setup for your event.

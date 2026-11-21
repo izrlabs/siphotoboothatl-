@@ -31,4 +31,4 @@ An open-air booth is a flexible setup with a backdrop and a camera, and it is gr
 
 ## Not sure which booth to pick?
 
-Our guide to [open-air, enclosed and 360 booths](/open-air-vs-enclosed-vs-360-booth-atlanta-wedding/) compares the options. Or tell us about your event and we will recommend one. [Request a quote](/contact/).
+Our guide to [open-air, enclosed and 360 booths](/open-air-vs-enclosed-vs-360-booth-atlanta-wedding/) compares the options. Or tell us about your event and we will recommend one. [Request a quote](/get-a-quote/).

@@ -101,13 +101,13 @@ def aside(toc, who="this guide"):
     return ('<aside class="rose-aside">'
             f'<div class="rose-card rose-toc"><h4>In {who}</h4>{toc}</div>'
             '<div class="rose-card rose-cta"><h4>Get your free quote</h4><p>Tell us your date, city and ZIP. We reply with a clear, all-in price.</p>'
-            '<a class="rose-btn" href="/contact/">Get a Quote</a>'
+            '<a class="rose-btn" href="/get-a-quote/">Get a Quote</a>'
             f'<small>Or call <a href="tel:{PHONE_TEL}" style="color:#fff;">{PHONE}</a></small></div></aside>')
 
 def band(h="Ready to book your photo booth?"):
     return ('<section class="rose-band"><h2>' + h + '</h2><p>Open-air, glam, enclosed and 360 video booths across Atlanta and metro Georgia. '
             'Setup, teardown and a friendly attendant are always included.</p>'
-            '<div class="rose-btns" style="justify-content:center;"><a class="rose-btn" href="/contact/">Get a Free Quote</a>'
+            '<div class="rose-btns" style="justify-content:center;"><a class="rose-btn" href="/get-a-quote/">Get a Free Quote</a>'
             f'<a class="rose-btn alt" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></section>')
 
 def post_cards(items):
@@ -200,11 +200,11 @@ def city_page(c, cities):
     hero = ('<section class="rose-hero"><div class="rose-hero-in"><div class="rose-crumbs"><a href="/">Home</a> / Service areas / ' + esc(c["city"]) + '</div>'
             f'<span class="rose-pill">{esc(c["city"])}, {esc(c["state"])}</span><h1>{esc(c["title"])}</h1>'
             f'<p class="rose-lead">{esc(c["lead"])}</p>'
-            '<div class="rose-btns"><a class="rose-btn" href="/contact/">Get a Free Quote</a>'
+            '<div class="rose-btns"><a class="rose-btn" href="/get-a-quote/">Get a Free Quote</a>'
             f'<a class="rose-btn alt" href="tel:{PHONE_TEL}">Call {PHONE}</a></div></div></section>')
     feat = f'<div class="rose-feature"><img src="{esc(c["image"])}" alt="Photo booth rental in {esc(c["city"])}, {esc(c["state"])} by SI Photo Booth"></div>'
     others = "".join(f'<a href="/{o["slug"]}/">{esc(o["city"])}</a>' for o in cities if o["slug"] != c["slug"])
-    near = f'<section class="rose-related" style="padding-bottom:30px;"><h2>We also serve</h2><div class="rose-cities">{others}<a href="/contact/">Anywhere in metro Atlanta</a></div></section>'
+    near = f'<section class="rose-related" style="padding-bottom:30px;"><h2>We also serve</h2><div class="rose-cities">{others}<a href="/get-a-quote/">Anywhere in metro Atlanta</a></div></section>'
     body = hero + feat + '<div class="rose-wrap"><article class="rose-article">' + body_html + '</article>' + aside(toc, "this page") + '</div>' + band(f"Book your {c['city']} photo booth") + near
     url = f'{SITE}/{c["slug"]}/'
     local = dict(BIZ); local = {"@context": "https://schema.org", "@type": "LocalBusiness", "name": "SI Photo Booth", "url": url,
@@ -243,7 +243,7 @@ def main():
     for c in cities:
         d = OUT / c["slug"]; d.mkdir(exist_ok=True)
         (d / "index.html").write_text(city_page(c, cities), encoding="utf-8")
-    urls = [("/", "1.0", "weekly"), ("/services/", "0.9", "monthly"), ("/contact/", "0.9", "monthly"), ("/gallery/", "0.8", "monthly"),
+    urls = [("/", "1.0", "weekly"), ("/services/", "0.9", "monthly"), ("/get-a-quote/", "0.9", "monthly"), ("/gallery/", "0.8", "monthly"),
             ("/about/", "0.7", "monthly"), ("/blog/", "0.8", "weekly")]
     urls += [(f"/{d.name}/", "0.8", "monthly") for d in sorted((ROOT / "static").iterdir()) if d.is_dir() and d.name.startswith("photo-booth-rental-") and d.name not in {c["slug"] for c in cities}]
     urls += [(f'/{c["slug"]}/', "0.9", "monthly") for c in cities]

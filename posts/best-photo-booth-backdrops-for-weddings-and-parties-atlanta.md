@@ -31,4 +31,4 @@ A white flower wall gives a soft, romantic look that works especially well for w
 
 ## See them in person
 
-Our [gallery](/gallery/) shows the backdrops we use. If you are not sure which fits, tell us your event type and colors and we will recommend one. [Request a quote](/contact/) and mention your backdrop choice.
+Our [gallery](/gallery/) shows the backdrops we use. If you are not sure which fits, tell us your event type and colors and we will recommend one. [Request a quote](/get-a-quote/) and mention your backdrop choice.

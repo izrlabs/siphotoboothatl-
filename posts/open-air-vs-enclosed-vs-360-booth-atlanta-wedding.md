@@ -56,4 +56,4 @@ Many couples pair a booth with a keepsake plan, such as a guest-book page of pri
 
 ## Ready to book?
 
-Tell us your date, city and ZIP code and we will recommend the right booth and send a quote. [Get your free quote](/contact/) or explore [photo booth rental in Marietta](/photo-booth-rental-marietta-ga/), [Alpharetta](/photo-booth-rental-alpharetta-ga/) and other Atlanta-area cities.
+Tell us your date, city and ZIP code and we will recommend the right booth and send a quote. [Get your free quote](/get-a-quote/) or explore [photo booth rental in Marietta](/photo-booth-rental-marietta-ga/), [Alpharetta](/photo-booth-rental-alpharetta-ga/) and other Atlanta-area cities.

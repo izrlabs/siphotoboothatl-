@@ -56,4 +56,4 @@ They are different experiences. A traditional [open-air or enclosed booth](/serv
 
 ## Book a 360 booth in Atlanta
 
-We bring the booth to Atlanta, Marietta, Alpharetta, Roswell, Kennesaw and surrounding areas. [Get a free quote](/contact/) with your date, city and ZIP code.
+We bring the booth to Atlanta, Marietta, Alpharetta, Roswell, Kennesaw and surrounding areas. [Get a free quote](/get-a-quote/) with your date, city and ZIP code.

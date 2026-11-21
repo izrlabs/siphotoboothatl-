@@ -58,4 +58,4 @@ Ask for photos from events like yours. Check our [gallery](/gallery/) to see our
 
 ## Next step
 
-Send us your date, city and ZIP code and we will answer all ten of these for your event. [Request a free quote](/contact/) or see our [services](/services/).
+Send us your date, city and ZIP code and we will answer all ten of these for your event. [Request a free quote](/get-a-quote/) or see our [services](/services/).

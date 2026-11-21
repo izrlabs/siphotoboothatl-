@@ -41,4 +41,4 @@ Place the booth for the time that fits best, and avoid running it during toasts,
 
 The booth type changes how many people can use it at once. Open-air booths fit groups, while enclosed booths feel more private. See [which booth is right for your wedding](/open-air-vs-enclosed-vs-360-booth-atlanta-wedding/).
 
-Tell us your guest count and schedule and we will suggest how long to book. [Request a quote](/contact/).
+Tell us your guest count and schedule and we will suggest how long to book. [Request a quote](/get-a-quote/).

@@ -40,4 +40,4 @@ A lower quote that leaves out the attendant or prints can cost more by the end. 
 
 ## Get an exact price
 
-The fastest way to an exact number is a quote with your date, venue and booth. [Request a quote](/contact/) and we will send the price for your event.
+The fastest way to an exact number is a quote with your date, venue and booth. [Request a quote](/get-a-quote/) and we will send the price for your event.
