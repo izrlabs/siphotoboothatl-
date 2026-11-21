@@ -14,8 +14,6 @@ concurrency:
   cancel-in-progress: true
 env:
   TZ: America/New_York
-  # Preview address prefix. Delete this line once siphotoboothatl.com points at GitHub.
-  BASE_PATH: /${{ github.event.repository.name }}
 jobs:
   build:
     runs-on: ubuntu-latest
