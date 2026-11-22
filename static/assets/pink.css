@@ -23,3 +23,6 @@ footer{background:#050304!important;border-top:1px solid rgba(255,46,147,.2)!imp
 .bd-card figcaption{padding:12px 14px;font-weight:700;font-size:14px;color:#fff;text-align:center;}
 .float-book{transition:opacity .3s ease!important;}
 .float-book.fb-hide{opacity:0!important;pointer-events:none!important;}
+.qf-inc{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:22px 0 0;}
+.qf-inc li{background:rgba(255,46,147,.12);border:1px solid rgba(255,46,147,.4);color:#fff;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;}
+.qf-inc li:before{content:"✓ ";color:#FF2E93;}
