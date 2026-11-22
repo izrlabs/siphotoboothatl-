@@ -100,7 +100,7 @@ if(b&&s){for(var i=0;i<s.options.length;i++){if(s.options[i].value===b){s.select
 var COUNTER='https://abacus.jasoncameron.dev/hit/siphotoboothatl/quotes';
 function fallback(){var n=new Date(),z=function(x){return ('0'+x).slice(-2);};return 'SI-'+z(n.getMonth()+1)+z(n.getDate())+z(n.getHours())+z(n.getMinutes());}
 function nextNumber(){var c=new AbortController();var t=setTimeout(function(){c.abort();},6000);
-return fetch(COUNTER,{signal:c.signal}).then(function(r){return r.json();}).then(function(d){clearTimeout(t);return (d&&d.value)?'SI-'+d.value:fallback();}).catch(function(){clearTimeout(t);return fallback();});}
+return fetch(COUNTER+'?t='+Date.now(),{signal:c.signal,cache:'no-store'}).then(function(r){return r.json();}).then(function(d){clearTimeout(t);return (d&&d.value)?'SI-'+d.value:fallback();}).catch(function(){clearTimeout(t);return fallback();});}
 f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('.si-form-btn');b.disabled=true;b.textContent='Sending...';
 var g=function(n){var el=f.elements[n];return el?el.value.trim():'';};
 var d=g('event_date');if(d){var q=d.split('-');if(q.length===3)d=q[1]+'/'+q[2]+'/'+q[0];}
