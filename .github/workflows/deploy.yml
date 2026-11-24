@@ -36,3 +36,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  indexnow:
+    needs: deploy
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping IndexNow (Bing, Yandex and others) with every sitemap URL
+        run: |
+          sleep 60
+          curl -fsS https://siphotoboothatl.com/sitemap.xml -o sitemap.xml
+          python3 - <<'PY'
+          import re, json, urllib.request
+          urls = re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml").read())
+          body = json.dumps({"host": "siphotoboothatl.com", "key": "7af7a58cf99c0bb90bc5d00940d509df",
+            "keyLocation": "https://siphotoboothatl.com/7af7a58cf99c0bb90bc5d00940d509df.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+            headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              print("IndexNow status", urllib.request.urlopen(req, timeout=30).status, len(urls), "urls")
+          except Exception as e:
+              print("IndexNow ping failed (non-fatal):", e)
+          PY
